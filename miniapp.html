@@ -10,22 +10,21 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
 :root{
-  --bg:#07090f;
-  --surface:#0e1320;
-  --surface2:#141c2e;
+  --bg:#09080d;
+  --surface:#111018;
+  --surface2:#19171f;
   --border:rgba(255,255,255,0.06);
   --border2:rgba(255,255,255,0.1);
-  --blue:#3b6ef8;
-  --blue-light:#5b87ff;
-  --blue-dim:rgba(59,110,248,0.15);
-  --blue-glow:rgba(59,110,248,0.25);
-  --text:#edf2ff;
-  --text2:#8b97b3;
-  --text3:#4a5568;
+  --gold:#f0b429;
+  --gold2:#ffd166;
+  --gold3:#e09a10;
+  --gold-dim:rgba(240,180,41,0.13);
+  --gold-glow:rgba(240,180,41,0.28);
+  --text:#f5f0e8;
+  --text2:#8b8296;
+  --text3:#3d3848;
   --green:#34d399;
   --green-dim:rgba(52,211,153,0.12);
-  --orange:#fb923c;
-  --orange-dim:rgba(251,146,60,0.12);
   --red:#f87171;
   --font:'Plus Jakarta Sans',sans-serif;
 }
@@ -34,27 +33,27 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 #content{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;padding-bottom:80px}
 #content::-webkit-scrollbar{display:none}
 .page{display:none;min-height:100%}
-.page.active{display:block;animation:fadeUp 0.2s ease}
+.page.active{display:block;animation:fadeUp 0.22s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
 /* ONBOARD */
-#onboard-screen{position:fixed;inset:0;z-index:999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px}
+#onboard-screen{position:fixed;inset:0;z-index:999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;background-image:radial-gradient(ellipse at 50% 20%,rgba(240,180,41,0.08),transparent 60%)}
 #onboard-screen.hidden{display:none}
-.ob-logo{width:76px;height:76px;background:linear-gradient(135deg,#3b6ef8,#1e40af);border-radius:22px;display:flex;align-items:center;justify-content:center;font-size:34px;margin-bottom:28px;box-shadow:0 8px 32px rgba(59,110,248,0.4)}
-.ob-title{font-size:30px;font-weight:800;text-align:center;letter-spacing:-0.8px;margin-bottom:8px}
-.ob-sub{color:var(--text2);text-align:center;font-size:14px;line-height:1.6;margin-bottom:40px;max-width:280px}
+.ob-logo{width:80px;height:80px;background:linear-gradient(135deg,#f0b429,#c8860a);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:36px;margin-bottom:28px;box-shadow:0 8px 40px rgba(240,180,41,0.35),0 2px 8px rgba(0,0,0,0.4)}
+.ob-title{font-size:30px;font-weight:800;text-align:center;letter-spacing:-0.8px;margin-bottom:8px;background:linear-gradient(135deg,#f5e6b8,#f0b429);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ob-sub{color:var(--text2);text-align:center;font-size:14px;line-height:1.7;margin-bottom:40px;max-width:280px}
 .ob-form{width:100%;max-width:320px;display:flex;flex-direction:column;gap:12px}
 .ob-input{width:100%;padding:16px 18px;background:var(--surface);border:1.5px solid var(--border2);border-radius:14px;color:var(--text);font-size:16px;font-family:var(--font);outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none}
-.ob-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-dim)}
+.ob-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-dim)}
 .ob-input::placeholder{color:var(--text3)}
-.ob-btn{padding:17px;background:var(--blue);border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:700;font-family:var(--font);cursor:pointer;transition:all .15s}
-.ob-btn:active{transform:scale(0.97);background:#2952d9}
+.ob-btn{padding:17px;background:linear-gradient(135deg,#f0b429,#c8860a);border:none;border-radius:14px;color:#1a1200;font-size:16px;font-weight:800;font-family:var(--font);cursor:pointer;transition:all .15s;box-shadow:0 4px 20px rgba(240,180,41,0.3)}
+.ob-btn:active{transform:scale(0.97);opacity:0.9}
 .ob-error{color:var(--red);font-size:13px;text-align:center;padding:8px 12px;background:rgba(248,113,113,0.1);border-radius:10px;display:none}
 
 /* NAV */
-#nav{position:fixed;bottom:0;left:0;right:0;height:68px;background:rgba(7,9,15,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--border);display:flex;align-items:center;z-index:100}
-.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;border:none;background:transparent;color:var(--text3);font-family:var(--font);font-size:10px;font-weight:700;letter-spacing:0.5px;padding:8px 0;transition:color .2s;text-transform:uppercase;height:100%}
-.nav-btn.active{color:var(--blue-light)}
+#nav{position:fixed;bottom:0;left:0;right:0;height:68px;background:rgba(9,8,13,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--border);display:flex;align-items:center;z-index:100}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;border:none;background:transparent;color:var(--text3);font-family:var(--font);font-size:9.5px;font-weight:700;letter-spacing:0.5px;padding:8px 0;transition:color .2s;text-transform:uppercase;height:100%}
+.nav-btn.active{color:var(--gold)}
 .nav-btn svg{width:22px;height:22px}
 
 /* PAGE HEADER */
@@ -62,27 +61,35 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .page-h1{font-size:26px;font-weight:800;letter-spacing:-0.6px}
 .page-sub{color:var(--text2);font-size:13px;margin-top:3px}
 
-/* HOME */
-.hero-card{margin:16px;border-radius:20px;background:linear-gradient(135deg,#1a2d6b 0%,#0f1f4a 50%,#0a1530 100%);padding:24px;position:relative;overflow:hidden;border:1px solid rgba(59,110,248,0.2)}
-.hero-card::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(59,110,248,0.2),transparent 70%);border-radius:50%}
-.hero-hi{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:4px}
-.hero-name{font-size:22px;font-weight:800;letter-spacing:-0.4px;margin-bottom:20px;position:relative;z-index:1}
+/* HOME HERO */
+.hero-card{margin:16px;border-radius:22px;background:linear-gradient(135deg,#2a1f00 0%,#1a1200 50%,#0d0b08 100%);padding:24px;position:relative;overflow:hidden;border:1px solid rgba(240,180,41,0.2)}
+.hero-card::before{content:'';position:absolute;top:-80px;right:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(240,180,41,0.15),transparent 70%);border-radius:50%}
+.hero-card::after{content:'';position:absolute;bottom:-50px;left:-20px;width:160px;height:160px;background:radial-gradient(circle,rgba(240,180,41,0.07),transparent 70%);border-radius:50%}
+.hero-hi{font-size:13px;color:rgba(240,180,41,0.6);margin-bottom:4px;font-weight:600;letter-spacing:0.3px;position:relative;z-index:1}
+.hero-name{font-size:22px;font-weight:800;letter-spacing:-0.4px;margin-bottom:20px;position:relative;z-index:1;color:var(--text)}
 .hero-row{display:flex;gap:10px;position:relative;z-index:1}
-.hero-stat{flex:1;background:rgba(255,255,255,0.08);border-radius:12px;padding:12px 14px}
-.hero-stat-n{font-size:22px;font-weight:800;letter-spacing:-0.5px}
-.hero-stat-l{font-size:11px;color:rgba(255,255,255,0.65);margin-top:2px;font-weight:500}
-.section-label{font-size:12px;font-weight:700;color:var(--text2);letter-spacing:1px;text-transform:uppercase;padding:0 20px;margin:22px 0 10px}
-.next-card{margin:0 16px;background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:16px 18px;display:flex;align-items:center;gap:14px}
-.next-icon{width:48px;height:48px;background:var(--blue-dim);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.hero-stat{flex:1;background:rgba(240,180,41,0.07);border-radius:13px;padding:12px 10px;border:1px solid rgba(240,180,41,0.1)}
+.hero-stat-n{font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--gold2)}
+.hero-stat-l{font-size:10px;color:rgba(240,180,41,0.55);margin-top:3px;font-weight:600;line-height:1.3}
+
+/* SECTION LABEL */
+.sec-lbl{font-size:11px;font-weight:700;color:var(--text2);letter-spacing:1px;text-transform:uppercase;padding:0 20px;margin:22px 0 10px}
+
+/* NEXT TEST CARD */
+.next-card{margin:0 16px;background:var(--surface);border:1px solid rgba(240,180,41,0.15);border-radius:16px;padding:16px 18px;display:flex;align-items:center;gap:14px}
+.next-icon{width:48px;height:48px;background:var(--gold-dim);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
 .next-info{flex:1;min-width:0}
 .next-name{font-weight:700;font-size:15px}
 .next-date{color:var(--text2);font-size:13px;margin-top:3px}
-.days-chip{background:var(--blue);color:#fff;font-size:12px;font-weight:700;padding:5px 12px;border-radius:20px;white-space:nowrap;flex-shrink:0}
-.days-chip.soon{background:var(--orange)}
+.days-chip{background:var(--gold);color:#1a1200;font-size:12px;font-weight:800;padding:5px 12px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+.days-chip.soon{background:linear-gradient(135deg,#f0b429,#e07010);animation:glow 2s infinite}
+@keyframes glow{0%,100%{box-shadow:none}50%{box-shadow:0 0 14px rgba(240,180,41,0.5)}}
+
+/* SCHEDULE */
 .sched-card{margin:0 16px;background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden}
 .sched-row{display:flex;align-items:center;padding:13px 18px;border-bottom:1px solid var(--border);gap:12px}
 .sched-row:last-child{border-bottom:none}
-.sched-day{font-size:13px;font-weight:700;color:var(--blue-light);width:32px;flex-shrink:0}
+.sched-day{font-size:12px;font-weight:800;color:var(--gold);width:30px;flex-shrink:0}
 .sched-time{font-size:14px;font-weight:600;flex:1}
 .sched-badge{font-size:11px;color:var(--text2);background:var(--surface2);padding:3px 10px;border-radius:20px}
 
@@ -91,36 +98,45 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .lesson-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:14px 18px;display:flex;align-items:center;gap:14px}
 .l-num{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0}
 .l-num.done{background:var(--green-dim);color:var(--green)}
-.l-num.upcoming{background:var(--blue-dim);color:var(--blue-light)}
-.l-num.next{background:var(--blue);color:#fff;box-shadow:0 4px 12px var(--blue-glow)}
+.l-num.upcoming{background:rgba(240,180,41,0.1);color:var(--text2)}
+.l-num.next{background:linear-gradient(135deg,#f0b429,#c8860a);color:#1a1200;box-shadow:0 4px 12px var(--gold-glow)}
 .l-info{flex:1;min-width:0}
 .l-name{font-weight:700;font-size:14px}
 .l-date{color:var(--text2);font-size:12px;margin-top:3px}
 .l-badge{font-size:11px;font-weight:700;padding:4px 10px;border-radius:20px;white-space:nowrap;flex-shrink:0}
 .l-badge.done{background:var(--green-dim);color:var(--green)}
-.l-badge.upcoming{background:var(--blue-dim);color:var(--blue-light)}
-.l-badge.next{background:var(--blue);color:#fff}
+.l-badge.upcoming{background:rgba(255,255,255,0.05);color:var(--text2)}
+.l-badge.next{background:var(--gold);color:#1a1200}
 
 /* STUDENTS */
 .students-list{padding:0 16px;display:flex;flex-direction:column;gap:8px}
-.student-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:14px 16px;display:flex;align-items:center;gap:13px;cursor:pointer;transition:background .15s}
+.student-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:13px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:background .15s}
 .student-card:active{background:var(--surface2)}
-.ava{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex-shrink:0;overflow:hidden;background:linear-gradient(135deg,#1e3a8a,#1e40af)}
-.ava img{width:100%;height:100%;object-fit:cover;border-radius:14px}
+.ava{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;overflow:hidden;background:linear-gradient(135deg,#2a1f00,#4a3800)}
+.ava img{width:100%;height:100%;object-fit:cover;border-radius:13px}
 .s-info{flex:1;min-width:0}
+.s-name-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
 .s-name{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s-icons{display:flex;gap:5px;align-items:center;flex-shrink:0}
+.s-icon-link{width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;transition:transform .15s;text-decoration:none;flex-shrink:0}
+.s-icon-link:active{transform:scale(0.9)}
+.s-icon-link.ig{background:rgba(225,48,108,0.15)}
+.s-icon-link.tg{background:rgba(41,182,246,0.15)}
+.s-icon-link.filled{opacity:1}
+.s-icon-link.empty{opacity:0.25;pointer-events:none}
+.s-check{color:var(--green);font-size:12px}
 .s-role{color:var(--text2);font-size:12px;margin-top:3px}
 .s-arr{color:var(--text3);font-size:20px;font-weight:300;flex-shrink:0}
 
-/* DETAIL SCREEN */
+/* DETAIL */
 #detail-screen{position:fixed;inset:0;z-index:200;background:var(--bg);display:none;flex-direction:column;overflow-y:auto;-webkit-overflow-scrolling:touch}
 #detail-screen.open{display:flex;animation:slideIn 0.25s ease}
 @keyframes slideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
 .detail-bar{display:flex;align-items:center;padding:16px 20px 12px;gap:12px;border-bottom:1px solid var(--border);background:var(--bg);position:sticky;top:0;z-index:10}
-.back-btn{width:38px;height:38px;background:var(--surface);border:1px solid var(--border2);border-radius:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;color:var(--text);font-size:20px;line-height:1}
+.back-btn{width:38px;height:38px;background:var(--surface);border:1px solid var(--border2);border-radius:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;color:var(--text);font-size:22px;line-height:1}
 .detail-title{font-size:17px;font-weight:800}
-.detail-hero{display:flex;flex-direction:column;align-items:center;padding:28px 20px 20px;text-align:center}
-.detail-ava{width:88px;height:88px;border-radius:26px;background:linear-gradient(135deg,#1e3a8a,#1e40af);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.4);margin-bottom:14px}
+.detail-hero{display:flex;flex-direction:column;align-items:center;padding:28px 20px 20px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(240,180,41,0.1),transparent 60%)}
+.detail-ava{width:88px;height:88px;border-radius:26px;background:linear-gradient(135deg,#2a1f00,#4a3800);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,0.5),0 0 0 1px rgba(240,180,41,0.15);margin-bottom:14px}
 .detail-ava img{width:100%;height:100%;object-fit:cover}
 .detail-fullname{font-size:22px;font-weight:800;letter-spacing:-0.5px}
 .detail-role-lbl{color:var(--text2);font-size:13px;margin-top:4px}
@@ -132,27 +148,41 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .info-lbl{font-size:11px;color:var(--text2);font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
 .info-val{font-size:14px;font-weight:500;margin-top:2px}
 .info-empty{font-size:14px;color:var(--text3);font-style:italic;margin-top:2px}
+.d-social-row{display:flex;gap:10px;margin-top:16px}
+.d-social-btn{display:flex;align-items:center;gap:7px;padding:10px 16px;border-radius:12px;font-size:13px;font-weight:600;text-decoration:none;transition:opacity .15s;flex:1;justify-content:center}
+.d-social-btn:active{opacity:0.8}
+.d-social-btn.ig{background:rgba(225,48,108,0.15);color:#e1306c}
+.d-social-btn.tg{background:rgba(41,182,246,0.15);color:#29b6f6}
+.d-social-btn.disabled{opacity:0.25;pointer-events:none}
 
 /* PROFILE */
-.profile-top{display:flex;flex-direction:column;align-items:center;padding:24px 20px 20px;background:radial-gradient(ellipse at 50% 0%,rgba(59,110,248,0.12),transparent 60%)}
+.profile-top{display:flex;flex-direction:column;align-items:center;padding:24px 20px 20px;background:radial-gradient(ellipse at 50% 0%,rgba(240,180,41,0.1),transparent 60%)}
 .my-ava-wrap{position:relative;cursor:pointer}
-.my-ava{width:88px;height:88px;border-radius:26px;background:linear-gradient(135deg,#1e3a8a,#1e40af);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;overflow:hidden;box-shadow:0 6px 24px rgba(0,0,0,0.4)}
+.my-ava{width:88px;height:88px;border-radius:26px;background:linear-gradient(135deg,#2a1f00,#4a3800);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;overflow:hidden;box-shadow:0 6px 28px rgba(0,0,0,0.4),0 0 0 1px rgba(240,180,41,0.15)}
 .my-ava img{width:100%;height:100%;object-fit:cover}
-.ava-edit{position:absolute;bottom:-4px;right:-4px;width:28px;height:28px;background:var(--blue);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:13px;box-shadow:0 2px 8px rgba(59,110,248,0.5)}
+.ava-edit{position:absolute;bottom:-4px;right:-4px;width:28px;height:28px;background:linear-gradient(135deg,#f0b429,#c8860a);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:13px;box-shadow:0 2px 8px rgba(240,180,41,0.4)}
 .my-name-lbl{font-size:20px;font-weight:800;letter-spacing:-0.4px;margin-top:12px}
 .tap-hint{font-size:12px;color:var(--text3);margin-top:5px}
+
+/* LANG SWITCHER */
+.lang-section{margin:0 16px 16px}
+.lang-lbl{font-size:12px;font-weight:700;color:var(--text2);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;display:block}
+.lang-row{display:flex;gap:8px}
+.lang-btn{flex:1;padding:11px 8px;background:var(--surface);border:1.5px solid var(--border2);border-radius:12px;color:var(--text2);font-size:13px;font-weight:700;font-family:var(--font);cursor:pointer;transition:all .15s;text-align:center}
+.lang-btn.active{background:var(--gold-dim);border-color:var(--gold);color:var(--gold)}
+.lang-btn:active{transform:scale(0.97)}
+
 .form-block{margin:0 16px 12px}
-.form-group{margin-bottom:12px}
+.form-group{margin-bottom:12px;position:relative}
 .form-lbl{font-size:12px;font-weight:700;color:var(--text2);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:7px;display:block}
 .form-inp{width:100%;padding:14px 16px;background:var(--surface);border:1.5px solid var(--border2);border-radius:13px;color:var(--text);font-size:15px;font-family:var(--font);outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none}
-.form-inp:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--blue-dim)}
+.form-inp:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-dim)}
 .form-inp::placeholder{color:var(--text3)}
 .save-wrap{padding:0 16px 24px}
-.save-btn{width:100%;padding:16px;background:var(--blue);border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:700;font-family:var(--font);cursor:pointer;transition:all .15s}
-.save-btn:active{transform:scale(0.97);background:#2952d9}
+.save-btn{width:100%;padding:16px;background:linear-gradient(135deg,#f0b429,#c8860a);border:none;border-radius:14px;color:#1a1200;font-size:16px;font-weight:800;font-family:var(--font);cursor:pointer;transition:all .15s;box-shadow:0 4px 20px rgba(240,180,41,0.25)}
+.save-btn:active{transform:scale(0.97);opacity:0.9}
 .save-toast{margin-top:12px;padding:12px 16px;background:var(--green-dim);border:1px solid rgba(52,211,153,0.2);border-radius:12px;color:var(--green);font-size:14px;font-weight:600;text-align:center;display:none}
-.gap8{height:8px}
-.gap16{height:16px}
+.gap8{height:8px}.gap16{height:16px}
 </style>
 </head>
 <body>
@@ -160,85 +190,99 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 <div id="onboard-screen">
   <div class="ob-logo">📚</div>
   <div class="ob-title">English Class</div>
-  <div class="ob-sub">Enter your name to access the class portal</div>
+  <div class="ob-sub" id="ob-sub-text">Enter your name to access the class portal</div>
   <div class="ob-form">
     <input class="ob-input" id="ob-fn" type="text" placeholder="First name" autocomplete="given-name" autocorrect="off" autocapitalize="words">
     <input class="ob-input" id="ob-ln" type="text" placeholder="Last name" autocomplete="family-name" autocorrect="off" autocapitalize="words">
-    <button class="ob-btn" onclick="doLogin()">Continue →</button>
-    <div class="ob-error" id="ob-err">Name not found. Please check spelling.</div>
+    <button class="ob-btn" id="ob-btn-lbl" onclick="doLogin()">Continue →</button>
+    <div class="ob-error" id="ob-err">Name not found. Check spelling.</div>
   </div>
 </div>
 
 <div id="app" style="display:none">
   <div id="content">
 
+    <!-- HOME -->
     <div class="page active" id="page-home">
       <div class="page-header">
         <div class="page-h1" id="home-h1">Hello 👋</div>
-        <div class="page-sub">English Class · Inter Nation</div>
+        <div class="page-sub" id="home-sub">English Class · Inter Nation</div>
       </div>
       <div class="hero-card">
-        <div class="hero-hi">Welcome back,</div>
+        <div class="hero-hi" id="hero-hi">Welcome back,</div>
         <div class="hero-name" id="hero-name">—</div>
         <div class="hero-row">
-          <div class="hero-stat"><div class="hero-stat-n" id="h-done">0</div><div class="hero-stat-l">Tests done</div></div>
-          <div class="hero-stat"><div class="hero-stat-n" id="h-left">0</div><div class="hero-stat-l">Remaining</div></div>
-          <div class="hero-stat"><div class="hero-stat-n">11</div><div class="hero-stat-l">Total</div></div>
+          <div class="hero-stat"><div class="hero-stat-n" id="h-days">0</div><div class="hero-stat-l" id="h-days-lbl">Days studying</div></div>
+          <div class="hero-stat"><div class="hero-stat-n" id="h-lessons">0</div><div class="hero-stat-l" id="h-lessons-lbl">Lessons done</div></div>
+          <div class="hero-stat"><div class="hero-stat-n" id="h-tests">0</div><div class="hero-stat-l" id="h-tests-lbl">Tests passed</div></div>
         </div>
       </div>
-      <div class="section-label">Next Unit Test</div>
+      <div class="sec-lbl" id="lbl-next-test">Next Unit Test</div>
       <div id="next-test-wrap"></div>
-      <div class="section-label">Class Schedule</div>
+      <div class="sec-lbl" id="lbl-schedule">Class Schedule</div>
       <div class="sched-card">
-        <div class="sched-row"><div class="sched-day">TUE</div><div class="sched-time">Every Tuesday at 14:00</div><div class="sched-badge">Weekly</div></div>
-        <div class="sched-row"><div class="sched-day">THU</div><div class="sched-time">Every Thursday at 14:00</div><div class="sched-badge">Weekly</div></div>
-        <div class="sched-row"><div class="sched-day">SAT</div><div class="sched-time">Every Saturday at 14:00</div><div class="sched-badge">Weekly</div></div>
+        <div class="sched-row"><div class="sched-day" id="sd1">TUE</div><div class="sched-time" id="st1">Every Tuesday at 14:00</div><div class="sched-badge" id="sb1">Weekly</div></div>
+        <div class="sched-row"><div class="sched-day" id="sd2">THU</div><div class="sched-time" id="st2">Every Thursday at 14:00</div><div class="sched-badge" id="sb2">Weekly</div></div>
+        <div class="sched-row"><div class="sched-day" id="sd3">SAT</div><div class="sched-time" id="st3">Every Saturday at 14:00</div><div class="sched-badge" id="sb3">Weekly</div></div>
       </div>
       <div class="gap16"></div>
     </div>
 
+    <!-- LESSONS -->
     <div class="page" id="page-lessons">
-      <div class="page-header"><div class="page-h1">Lessons</div><div class="page-sub">Unit test schedule</div></div>
+      <div class="page-header"><div class="page-h1" id="lessons-h1">Lessons</div><div class="page-sub" id="lessons-sub">Unit test schedule</div></div>
       <div class="gap16"></div>
       <div class="lessons-list" id="lessons-list"></div>
       <div class="gap16"></div>
     </div>
 
+    <!-- STUDENTS -->
     <div class="page" id="page-students">
-      <div class="page-header"><div class="page-h1">Students</div><div class="page-sub">15 class members</div></div>
+      <div class="page-header"><div class="page-h1" id="students-h1">Students</div><div class="page-sub" id="students-sub">15 class members</div></div>
       <div class="gap16"></div>
       <div class="students-list" id="students-list"></div>
       <div class="gap16"></div>
     </div>
 
+    <!-- PROFILE -->
     <div class="page" id="page-profile">
-      <div class="page-header"><div class="page-h1">My Profile</div><div class="page-sub">Edit your information</div></div>
+      <div class="page-header"><div class="page-h1" id="profile-h1">My Profile</div><div class="page-sub" id="profile-sub">Edit your information</div></div>
       <div class="profile-top">
         <div class="my-ava-wrap" onclick="document.getElementById('ava-file').click()">
           <div class="my-ava" id="my-ava"></div>
           <div class="ava-edit">✏️</div>
           <input type="file" id="ava-file" accept="image/*" style="display:none" onchange="onAvaChange(this)">
         </div>
-        <div class="tap-hint">Tap to change photo</div>
+        <div class="tap-hint" id="tap-hint-lbl">Tap to change photo</div>
         <div class="my-name-lbl" id="my-name-lbl"></div>
       </div>
+
+      <div class="lang-section">
+        <label class="lang-lbl" id="lang-lbl-text">Language</label>
+        <div class="lang-row">
+          <button class="lang-btn active" id="lang-en" onclick="setLang('en')">🇬🇧 English</button>
+          <button class="lang-btn" id="lang-ru" onclick="setLang('ru')">🇷🇺 Русский</button>
+          <button class="lang-btn" id="lang-uz" onclick="setLang('uz')">🇺🇿 O'zbek</button>
+        </div>
+      </div>
+
       <div class="form-block">
         <div class="form-group">
-          <label class="form-lbl">Instagram</label>
+          <label class="form-lbl" id="lbl-ig">Instagram</label>
           <input class="form-inp" id="f-ig" type="text" placeholder="@username" autocorrect="off" autocapitalize="off">
         </div>
         <div class="form-group">
-          <label class="form-lbl">Telegram</label>
+          <label class="form-lbl" id="lbl-tg">Telegram</label>
           <input class="form-inp" id="f-tg" type="text" placeholder="@username" autocorrect="off" autocapitalize="off">
         </div>
         <div class="form-group">
-          <label class="form-lbl">Birthday</label>
+          <label class="form-lbl" id="lbl-bd">Birthday</label>
           <input class="form-inp" id="f-bd" type="date">
         </div>
       </div>
       <div class="save-wrap">
-        <button class="save-btn" onclick="saveProfile()">Save Changes</button>
-        <div class="save-toast" id="save-toast">✅ Profile saved!</div>
+        <button class="save-btn" id="save-btn-lbl" onclick="saveProfile()">Save Changes</button>
+        <div class="save-toast" id="save-toast">✅ Saved!</div>
       </div>
     </div>
 
@@ -247,35 +291,37 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div id="nav">
     <button class="nav-btn active" id="nb-home" onclick="goPage('home')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg>
-      Home
+      <span id="nav-home-lbl">Home</span>
     </button>
     <button class="nav-btn" id="nb-lessons" onclick="goPage('lessons')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
-      Lessons
+      <span id="nav-lessons-lbl">Lessons</span>
     </button>
     <button class="nav-btn" id="nb-students" onclick="goPage('students')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><path d="M16 3.13a4 4 0 010 7.75M21 21v-2a4 4 0 00-3-3.85"/></svg>
-      Students
+      <span id="nav-students-lbl">Students</span>
     </button>
     <button class="nav-btn" id="nb-profile" onclick="goPage('profile')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      Profile
+      <span id="nav-profile-lbl">Profile</span>
     </button>
   </div>
 </div>
 
+<!-- DETAIL SCREEN -->
 <div id="detail-screen">
   <div class="detail-bar">
     <div class="back-btn" onclick="closeDetail()">‹</div>
-    <div class="detail-title">Student Profile</div>
+    <div class="detail-title" id="detail-bar-title">Student Profile</div>
   </div>
   <div class="detail-hero">
     <div class="detail-ava" id="d-ava"></div>
     <div class="detail-fullname" id="d-name"></div>
-    <div class="detail-role-lbl">English Class · Inter Nation</div>
+    <div class="detail-role-lbl" id="d-role-lbl">English Class · Inter Nation</div>
+    <div class="d-social-row" id="d-social-row"></div>
   </div>
   <div class="info-block">
-    <div class="info-block-hdr">Social Media</div>
+    <div class="info-block-hdr" id="d-hdr-social">Social Media</div>
     <div class="info-row">
       <div class="info-icon" style="background:rgba(225,48,108,0.12)">📸</div>
       <div class="info-body"><div class="info-lbl">Instagram</div><div id="d-ig"></div></div>
@@ -286,14 +332,14 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     </div>
   </div>
   <div class="info-block">
-    <div class="info-block-hdr">Personal Info</div>
+    <div class="info-block-hdr" id="d-hdr-personal">Personal Info</div>
     <div class="info-row">
-      <div class="info-icon" style="background:rgba(251,146,60,0.12)">🎂</div>
-      <div class="info-body"><div class="info-lbl">Birthday</div><div id="d-bd"></div></div>
+      <div class="info-icon" style="background:rgba(240,180,41,0.12)">🎂</div>
+      <div class="info-body"><div class="info-lbl" id="d-lbl-bd">Birthday</div><div id="d-bd"></div></div>
     </div>
     <div class="info-row">
       <div class="info-icon" style="background:rgba(167,139,250,0.12)">🎉</div>
-      <div class="info-body"><div class="info-lbl">Age</div><div id="d-age"></div></div>
+      <div class="info-body"><div class="info-lbl" id="d-lbl-age">Age</div><div id="d-age"></div></div>
     </div>
   </div>
   <div style="height:40px"></div>
@@ -301,13 +347,18 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 
 <script>
 var UNIT_TESTS=[
-  {unit:"Unit 1.1",date:"2025-04-21"},{unit:"Unit 1.4",date:"2025-04-28"},
-  {unit:"Unit 2.4",date:"2025-05-02"},{unit:"Unit 3.4",date:"2025-05-07"},
-  {unit:"Unit 4.4",date:"2025-05-16"},{unit:"Unit 5.4",date:"2025-05-23"},
-  {unit:"Unit 6.4",date:"2025-05-30"},{unit:"Unit 7.4",date:"2025-06-06"},
-  {unit:"Unit 8.4",date:"2025-06-11"},{unit:"Unit 9.4",date:"2025-06-16"},
+  {unit:"Unit 1.4",date:"2025-04-28"},
+  {unit:"Unit 2.4",date:"2025-05-02"},
+  {unit:"Unit 3.4",date:"2025-05-07"},
+  {unit:"Unit 4.4",date:"2025-05-16"},
+  {unit:"Unit 5.4",date:"2025-05-23"},
+  {unit:"Unit 6.4",date:"2025-05-30"},
+  {unit:"Unit 7.4",date:"2025-06-06"},
+  {unit:"Unit 8.4",date:"2025-06-11"},
+  {unit:"Unit 9.4",date:"2025-06-16"},
   {unit:"Unit 10.4",date:"2025-06-23"}
 ];
+
 var STUDENTS=[
   "Muhammadali Yusufjonov","Asliddin Shaxabiddinov","Viktoriya Stergiu",
   "Avaz Muxitdinov","Durdona Ollamurodova","Muhammad Toraev",
@@ -315,8 +366,149 @@ var STUDENTS=[
   "Farangiz Eshboyeva","Jasmina Azadova","Muhammad Umidov",
   "Abdurauf Alimov","Shamsiddin Farxodov","Ravshan Muslimov"
 ];
+
+var CLASS_START = new Date("2025-04-21T00:00:00");
 var PAGES=['home','lessons','students','profile'];
 var currentUser=null;
+var currentLang='en';
+
+var LANGS={
+  en:{
+    ob_sub:"Enter your name to access the class portal",
+    ob_btn:"Continue →",
+    ob_err_empty:"Enter both first and last name.",
+    ob_err_notfound:"Name not found. Check spelling.",
+    home_greeting:"Hello,",
+    home_sub:"English Class · Inter Nation",
+    hero_hi:"Welcome back,",
+    h_days:"Days studying",
+    h_lessons:"Lessons done",
+    h_tests:"Tests passed",
+    lbl_next:"Next Unit Test",
+    lbl_schedule:"Class Schedule",
+    sd:["TUE","THU","SAT"],
+    st:["Every Tuesday at 14:00","Every Thursday at 14:00","Every Saturday at 14:00"],
+    sb:"Weekly",
+    lessons_h1:"Lessons",
+    lessons_sub:"Unit test schedule",
+    badge_done:"Done ✓",
+    badge_next:"Next",
+    badge_upcoming:"Upcoming",
+    students_h1:"Students",
+    students_sub:"15 class members",
+    profile_h1:"My Profile",
+    profile_sub:"Edit your information",
+    tap_hint:"Tap to change photo",
+    lang_lbl:"Language",
+    lbl_ig:"Instagram",
+    lbl_tg:"Telegram",
+    lbl_bd:"Birthday",
+    save_btn:"Save Changes",
+    save_ok:"✅ Profile saved!",
+    detail_title:"Student Profile",
+    d_social:"Social Media",
+    d_personal:"Personal Info",
+    d_bd:"Birthday",
+    d_age:"Age",
+    not_set:"Not set",
+    years_old:" years old",
+    nav:["Home","Lessons","Students","Profile"],
+    chip_today:"Today!",
+    chip_tomorrow:"Tomorrow",
+    chip_days:" days",
+    all_done:"🎉 All unit tests completed!"
+  },
+  ru:{
+    ob_sub:"Введите имя для доступа к порталу класса",
+    ob_btn:"Продолжить →",
+    ob_err_empty:"Введите имя и фамилию.",
+    ob_err_notfound:"Имя не найдено. Проверьте написание.",
+    home_greeting:"Привет,",
+    home_sub:"Английский класс · Inter Nation",
+    hero_hi:"С возвращением,",
+    h_days:"Дней обучения",
+    h_lessons:"Уроков пройдено",
+    h_tests:"Тестов сдано",
+    lbl_next:"Следующий юнит тест",
+    lbl_schedule:"Расписание занятий",
+    sd:["ВТ","ЧТ","СБ"],
+    st:["Каждый вторник в 14:00","Каждый четверг в 14:00","Каждую субботу в 14:00"],
+    sb:"Еженедельно",
+    lessons_h1:"Уроки",
+    lessons_sub:"Расписание юнит тестов",
+    badge_done:"Сдан ✓",
+    badge_next:"Следующий",
+    badge_upcoming:"Предстоит",
+    students_h1:"Студенты",
+    students_sub:"15 участников класса",
+    profile_h1:"Мой профиль",
+    profile_sub:"Редактировать информацию",
+    tap_hint:"Нажмите, чтобы сменить фото",
+    lang_lbl:"Язык",
+    lbl_ig:"Инстаграм",
+    lbl_tg:"Телеграм",
+    lbl_bd:"День рождения",
+    save_btn:"Сохранить",
+    save_ok:"✅ Профиль сохранён!",
+    detail_title:"Профиль студента",
+    d_social:"Соцсети",
+    d_personal:"Личная информация",
+    d_bd:"День рождения",
+    d_age:"Возраст",
+    not_set:"Не указано",
+    years_old:" лет",
+    nav:["Главная","Уроки","Студенты","Профиль"],
+    chip_today:"Сегодня!",
+    chip_tomorrow:"Завтра",
+    chip_days:" дн.",
+    all_done:"🎉 Все юнит тесты пройдены!"
+  },
+  uz:{
+    ob_sub:"Portal kirish uchun ismingizni kiriting",
+    ob_btn:"Davom etish →",
+    ob_err_empty:"Ism va familiyani kiriting.",
+    ob_err_notfound:"Ism topilmadi. Imlosini tekshiring.",
+    home_greeting:"Salom,",
+    home_sub:"Ingliz tili sinfi · Inter Nation",
+    hero_hi:"Xush kelibsiz,",
+    h_days:"O'quv kunlari",
+    h_lessons:"O'tilgan darslar",
+    h_tests:"Topshirilgan testlar",
+    lbl_next:"Keyingi Unit Test",
+    lbl_schedule:"Dars jadvali",
+    sd:["SE","PA","SH"],
+    st:["Har seshanba 14:00 da","Har payshanba 14:00 da","Har shanba 14:00 da"],
+    sb:"Har hafta",
+    lessons_h1:"Darslar",
+    lessons_sub:"Unit test jadvali",
+    badge_done:"Topshirildi ✓",
+    badge_next:"Keyingi",
+    badge_upcoming:"Kutilmoqda",
+    students_h1:"O'quvchilar",
+    students_sub:"15 sinf a'zosi",
+    profile_h1:"Mening profilim",
+    profile_sub:"Ma'lumotni tahrirlash",
+    tap_hint:"Foto o'zgartirish uchun bosing",
+    lang_lbl:"Til",
+    lbl_ig:"Instagram",
+    lbl_tg:"Telegram",
+    lbl_bd:"Tug'ilgan kun",
+    save_btn:"Saqlash",
+    save_ok:"✅ Profil saqlandi!",
+    detail_title:"O'quvchi profili",
+    d_social:"Ijtimoiy tarmoqlar",
+    d_personal:"Shaxsiy ma'lumot",
+    d_bd:"Tug'ilgan kun",
+    d_age:"Yosh",
+    not_set:"Ko'rsatilmagan",
+    years_old:" yosh",
+    nav:["Bosh sahifa","Darslar","O'quvchilar","Profil"],
+    chip_today:"Bugun!",
+    chip_tomorrow:"Ertaga",
+    chip_days:" kun",
+    all_done:"🎉 Barcha unit testlar topshirildi!"
+  }
+};
 
 var tg=(window.Telegram&&window.Telegram.WebApp)?window.Telegram.WebApp:null;
 if(tg){tg.ready();tg.expand();}
@@ -325,36 +517,98 @@ function sk(n){return'ec_'+n.replace(/\s+/g,'_').toLowerCase();}
 function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
 function lsGet(k){try{var v=localStorage.getItem(k);return v?JSON.parse(v):null;}catch(e){return null;}}
 
-function initials(n){
-  var p=n.trim().split(' ');
-  return p.length>=2?(p[0][0]+p[p.length-1][0]).toUpperCase():n.substring(0,2).toUpperCase();
-}
+function initials(n){var p=n.trim().split(' ');return p.length>=2?(p[0][0]+p[p.length-1][0]).toUpperCase():n.substring(0,2).toUpperCase();}
+
+var MONTHS_EN=['January','February','March','April','May','June','July','August','September','October','November','December'];
+var MONTHS_RU=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+var MONTHS_UZ=['yanvar','fevral','mart','aprel','may','iyun','iyul','avgust','sentabr','oktabr','noyabr','dekabr'];
+
 function fmtDate(s){
-  var mo=['January','February','March','April','May','June','July','August','September','October','November','December'];
   var d=new Date(s+'T12:00:00');
+  var mo=currentLang==='ru'?MONTHS_RU:currentLang==='uz'?MONTHS_UZ:MONTHS_EN;
+  if(currentLang==='ru')return d.getDate()+' '+mo[d.getMonth()]+' '+d.getFullYear();
   return mo[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();
 }
+
 function calcAge(s){
   var bd=new Date(s+'T12:00:00'),now=new Date();
   var age=now.getFullYear()-bd.getFullYear();
   if(now.getMonth()-bd.getMonth()<0||(now.getMonth()-bd.getMonth()===0&&now.getDate()<bd.getDate()))age--;
   return age;
 }
+
 function setAva(el,src){el.innerHTML='<img src="'+src+'" style="width:100%;height:100%;object-fit:cover">';}
 function textAva(el,name){el.textContent=initials(name);}
+
+function L(){return LANGS[currentLang]||LANGS.en;}
+
+function setLang(lang){
+  currentLang=lang;
+  ['en','ru','uz'].forEach(function(l){
+    document.getElementById('lang-'+l).classList[l===lang?'add':'remove']('active');
+  });
+  if(currentUser){
+    var d=lsGet(sk(currentUser))||{};
+    d.lang=lang;
+    lsSet(sk(currentUser),d);
+  }
+  applyLang();
+  buildHome();
+  buildLessons();
+  buildStudents();
+}
+
+function applyLang(){
+  var t=L();
+  document.getElementById('ob-sub-text').textContent=t.ob_sub;
+  document.getElementById('ob-btn-lbl').textContent=t.ob_btn;
+  document.getElementById('home-sub').textContent=t.home_sub;
+  document.getElementById('hero-hi').textContent=t.hero_hi;
+  document.getElementById('h-days-lbl').textContent=t.h_days;
+  document.getElementById('h-lessons-lbl').textContent=t.h_lessons;
+  document.getElementById('h-tests-lbl').textContent=t.h_tests;
+  document.getElementById('lbl-next-test').textContent=t.lbl_next;
+  document.getElementById('lbl-schedule').textContent=t.lbl_schedule;
+  document.getElementById('sd1').textContent=t.sd[0];document.getElementById('sd2').textContent=t.sd[1];document.getElementById('sd3').textContent=t.sd[2];
+  document.getElementById('st1').textContent=t.st[0];document.getElementById('st2').textContent=t.st[1];document.getElementById('st3').textContent=t.st[2];
+  document.getElementById('sb1').textContent=t.sb;document.getElementById('sb2').textContent=t.sb;document.getElementById('sb3').textContent=t.sb;
+  document.getElementById('lessons-h1').textContent=t.lessons_h1;
+  document.getElementById('lessons-sub').textContent=t.lessons_sub;
+  document.getElementById('students-h1').textContent=t.students_h1;
+  document.getElementById('students-sub').textContent=t.students_sub;
+  document.getElementById('profile-h1').textContent=t.profile_h1;
+  document.getElementById('profile-sub').textContent=t.profile_sub;
+  document.getElementById('tap-hint-lbl').textContent=t.tap_hint;
+  document.getElementById('lang-lbl-text').textContent=t.lang_lbl;
+  document.getElementById('lbl-ig').textContent=t.lbl_ig;
+  document.getElementById('lbl-tg').textContent=t.lbl_tg;
+  document.getElementById('lbl-bd').textContent=t.lbl_bd;
+  document.getElementById('save-btn-lbl').textContent=t.save_btn;
+  document.getElementById('detail-bar-title').textContent=t.detail_title;
+  document.getElementById('d-hdr-social').textContent=t.d_social;
+  document.getElementById('d-hdr-personal').textContent=t.d_personal;
+  document.getElementById('d-lbl-bd').textContent=t.d_bd;
+  document.getElementById('d-lbl-age').textContent=t.d_age;
+  var nav=t.nav;
+  document.getElementById('nav-home-lbl').textContent=nav[0];
+  document.getElementById('nav-lessons-lbl').textContent=nav[1];
+  document.getElementById('nav-students-lbl').textContent=nav[2];
+  document.getElementById('nav-profile-lbl').textContent=nav[3];
+}
 
 function doLogin(){
   var fn=(document.getElementById('ob-fn').value||'').trim();
   var ln=(document.getElementById('ob-ln').value||'').trim();
   var err=document.getElementById('ob-err');
+  var t=L();
   err.style.display='none';
-  if(!fn||!ln){err.textContent='Enter both first and last name.';err.style.display='block';return;}
+  if(!fn||!ln){err.textContent=t.ob_err_empty;err.style.display='block';return;}
   var full=fn+' '+ln;
   var match=null;
   for(var i=0;i<STUDENTS.length;i++){
     if(STUDENTS[i].toLowerCase()===full.toLowerCase()){match=STUDENTS[i];break;}
   }
-  if(!match){err.textContent='Name not found. Check spelling.';err.style.display='block';return;}
+  if(!match){err.textContent=t.ob_err_notfound;err.style.display='block';return;}
   currentUser=match;
   lsSet('ec_user',match);
   launchApp();
@@ -363,21 +617,45 @@ function doLogin(){
 document.getElementById('ob-fn').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('ob-ln').focus();});
 document.getElementById('ob-ln').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
 
+function calcStats(){
+  var now=new Date();now.setHours(0,0,0,0);
+  var days=Math.floor((now-CLASS_START)/86400000)+1;
+  if(days<0)days=0;
+  // count lessons (Tue=2, Thu=4, Sat=6) since start inclusive up to today
+  var lessons=0;
+  var d=new Date(CLASS_START);
+  while(d<=now){var dw=d.getDay();if(dw===2||dw===4||dw===6)lessons++;d.setDate(d.getDate()+1);}
+  // count passed tests
+  var tests=0;
+  for(var i=0;i<UNIT_TESTS.length;i++){
+    var td=new Date(UNIT_TESTS[i].date+'T00:00:00');
+    if(td<now)tests++;
+  }
+  return{days:days,lessons:lessons,tests:tests};
+}
+
 function launchApp(){
   document.getElementById('onboard-screen').classList.add('hidden');
   document.getElementById('app').style.display='flex';
-  document.getElementById('home-h1').textContent='Hello, '+currentUser.split(' ')[0]+' 👋';
+
+  var saved=lsGet(sk(currentUser));
+  if(saved&&saved.lang){currentLang=saved.lang;['en','ru','uz'].forEach(function(l){document.getElementById('lang-'+l).classList[l===currentLang?'add':'remove']('active');});}
+
+  applyLang();
+  var t=L();
+
+  document.getElementById('home-h1').textContent=t.home_greeting+' '+currentUser.split(' ')[0]+' 👋';
   document.getElementById('hero-name').textContent=currentUser;
   document.getElementById('my-name-lbl').textContent=currentUser;
 
   var myAva=document.getElementById('my-ava');
-  var saved=lsGet(sk(currentUser));
   if(saved&&saved.avatar){setAva(myAva,saved.avatar);}else{textAva(myAva,currentUser);}
   if(saved){
     if(saved.instagram)document.getElementById('f-ig').value=saved.instagram;
     if(saved.telegram)document.getElementById('f-tg').value=saved.telegram;
     if(saved.birthday)document.getElementById('f-bd').value=saved.birthday;
   }
+
   buildHome();
   buildLessons();
   buildStudents();
@@ -385,61 +663,103 @@ function launchApp(){
 }
 
 function buildHome(){
+  var t=L();
+  var s=calcStats();
+  document.getElementById('h-days').textContent=s.days;
+  document.getElementById('h-lessons').textContent=s.lessons;
+  document.getElementById('h-tests').textContent=s.tests;
+  document.getElementById('h-days-lbl').textContent=t.h_days;
+  document.getElementById('h-lessons-lbl').textContent=t.h_lessons;
+  document.getElementById('h-tests-lbl').textContent=t.h_tests;
+
   var now=new Date();now.setHours(0,0,0,0);
-  var done=0,next=null;
+  var next=null;
   for(var i=0;i<UNIT_TESTS.length;i++){
     var d=new Date(UNIT_TESTS[i].date+'T00:00:00');
-    if(d<now)done++;else if(!next)next=UNIT_TESTS[i];
+    if(d>=now){next=UNIT_TESTS[i];break;}
   }
-  document.getElementById('h-done').textContent=done;
-  document.getElementById('h-left').textContent=UNIT_TESTS.length-done;
   var wrap=document.getElementById('next-test-wrap');
-  if(!next){wrap.innerHTML='<div style="margin:0 16px;padding:16px 18px;background:var(--surface);border:1px solid var(--border);border-radius:16px;color:var(--text2);font-size:14px;text-align:center">🎉 All unit tests completed!</div>';return;}
+  if(!next){
+    wrap.innerHTML='<div style="margin:0 16px;padding:16px 18px;background:var(--surface);border:1px solid var(--border);border-radius:16px;color:var(--text2);font-size:14px;text-align:center">'+t.all_done+'</div>';
+    return;
+  }
   var d2=new Date(next.date+'T00:00:00');
   var diff=Math.round((d2-now)/86400000);
   var cc=diff<=3?'days-chip soon':'days-chip';
-  var lbl=diff===0?'Today!':diff===1?'Tomorrow':diff+' days';
+  var lbl=diff===0?t.chip_today:diff===1?t.chip_tomorrow:diff+t.chip_days;
   wrap.innerHTML='<div class="next-card"><div class="next-icon">📝</div><div class="next-info"><div class="next-name">'+next.unit+'</div><div class="next-date">'+fmtDate(next.date)+'</div></div><div class="'+cc+'">'+lbl+'</div></div>';
 }
 
 function buildLessons(){
+  var t=L();
   var now=new Date();now.setHours(0,0,0,0);
   var foundNext=false,html='';
   for(var i=0;i<UNIT_TESTS.length;i++){
-    var t=UNIT_TESTS[i];
-    var d=new Date(t.date+'T00:00:00');
+    var ut=UNIT_TESTS[i];
+    var d=new Date(ut.date+'T00:00:00');
     var done=d<now;
     var isNext=!done&&!foundNext;
     if(isNext)foundNext=true;
     var c=done?'done':(isNext?'next':'upcoming');
-    var b=done?'Done ✓':(isNext?'Next':'Upcoming');
-    html+='<div class="lesson-card"><div class="l-num '+c+'">'+(i+1)+'</div><div class="l-info"><div class="l-name">'+t.unit+'</div><div class="l-date">'+fmtDate(t.date)+'</div></div><div class="l-badge '+c+'">'+b+'</div></div>';
+    var b=done?t.badge_done:(isNext?t.badge_next:t.badge_upcoming);
+    html+='<div class="lesson-card"><div class="l-num '+c+'">'+(i+1)+'</div><div class="l-info"><div class="l-name">'+ut.unit+'</div><div class="l-date">'+fmtDate(ut.date)+'</div></div><div class="l-badge '+c+'">'+b+'</div></div>';
   }
   document.getElementById('lessons-list').innerHTML=html;
 }
 
 function buildStudents(){
+  var t=L();
   var html='';
   for(var i=0;i<STUDENTS.length;i++){
     var name=STUDENTS[i];
-    var saved=lsGet(sk(name));
-    var avaHtml=saved&&saved.avatar?'<img src="'+saved.avatar+'" style="width:100%;height:100%;object-fit:cover;border-radius:14px">':initials(name);
+    var saved=lsGet(sk(name))||{};
+    var avaHtml=saved.avatar?'<img src="'+saved.avatar+'" style="width:100%;height:100%;object-fit:cover;border-radius:13px">':initials(name);
+    var hasIg=!!(saved.instagram&&saved.instagram.trim());
+    var hasTg=!!(saved.telegram&&saved.telegram.trim());
+    var igHref=hasIg?'https://instagram.com/'+saved.instagram.replace('@','').trim():'#';
+    var tgHref=hasTg?'https://t.me/'+saved.telegram.replace('@','').trim():'#';
+    var igCls='s-icon-link ig '+(hasIg?'filled':'empty');
+    var tgCls='s-icon-link tg '+(hasTg?'filled':'empty');
+    var checkMark=(hasIg||hasTg)?'<span class="s-check">✓</span>':'';
     var safeName=name.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-    html+='<div class="student-card" onclick="openDetail(\''+safeName+'\')"><div class="ava">'+avaHtml+'</div><div class="s-info"><div class="s-name">'+name+'</div><div class="s-role">Student</div></div><div class="s-arr">›</div></div>';
+    html+='<div class="student-card"><div class="ava" onclick="openDetail(\''+safeName+'\')">'+avaHtml+'</div>';
+    html+='<div class="s-info" onclick="openDetail(\''+safeName+'\')"><div class="s-name-row"><div class="s-name">'+name+'</div>'+checkMark+'</div><div class="s-role">Student</div></div>';
+    html+='<div class="s-icons">';
+    if(hasIg)html+='<a class="'+igCls+'" href="'+igHref+'" target="_blank">📸</a>';
+    else html+='<span class="'+igCls+'">📸</span>';
+    if(hasTg)html+='<a class="'+tgCls+'" href="'+tgHref+'" target="_blank">✈️</a>';
+    else html+='<span class="'+tgCls+'">✈️</span>';
+    html+='</div>';
+    html+='<div class="s-arr" onclick="openDetail(\''+safeName+'\')">›</div></div>';
   }
   document.getElementById('students-list').innerHTML=html;
 }
 
 function openDetail(name){
+  var t=L();
   var saved=lsGet(sk(name))||{};
   document.getElementById('d-name').textContent=name;
   var dava=document.getElementById('d-ava');
   if(saved.avatar){setAva(dava,saved.avatar);}else{textAva(dava,name);}
-  function sf(id,val){var el=document.getElementById(id);if(val)el.innerHTML='<div class="info-val">'+val+'</div>';else el.innerHTML='<div class="info-empty">Not set</div>';}
+
+  // social buttons
+  var hasIg=!!(saved.instagram&&saved.instagram.trim());
+  var hasTg=!!(saved.telegram&&saved.telegram.trim());
+  var igHref=hasIg?'https://instagram.com/'+saved.instagram.replace('@','').trim():'#';
+  var tgHref=hasTg?'https://t.me/'+saved.telegram.replace('@','').trim():'#';
+  var socialRow='';
+  if(hasIg)socialRow+='<a class="d-social-btn ig" href="'+igHref+'" target="_blank">📸 Instagram</a>';
+  else socialRow+='<div class="d-social-btn ig disabled">📸 Instagram</div>';
+  if(hasTg)socialRow+='<a class="d-social-btn tg" href="'+tgHref+'" target="_blank">✈️ Telegram</a>';
+  else socialRow+='<div class="d-social-btn tg disabled">✈️ Telegram</div>';
+  document.getElementById('d-social-row').innerHTML=socialRow;
+
+  function sf(id,val){var el=document.getElementById(id);if(val)el.innerHTML='<div class="info-val">'+val+'</div>';else el.innerHTML='<div class="info-empty">'+t.not_set+'</div>';}
   sf('d-ig',saved.instagram||'');
   sf('d-tg',saved.telegram||'');
-  if(saved.birthday){sf('d-bd',fmtDate(saved.birthday));sf('d-age',calcAge(saved.birthday)+' years old');}
+  if(saved.birthday){sf('d-bd',fmtDate(saved.birthday));sf('d-age',calcAge(saved.birthday)+t.years_old);}
   else{sf('d-bd','');sf('d-age','');}
+
   var ds=document.getElementById('detail-screen');
   ds.classList.add('open');
   ds.scrollTop=0;
@@ -465,14 +785,17 @@ function onAvaChange(input){
 }
 
 function saveProfile(){
+  var t=L();
   var d=lsGet(sk(currentUser))||{};
   d.instagram=document.getElementById('f-ig').value.trim();
   d.telegram=document.getElementById('f-tg').value.trim();
   d.birthday=document.getElementById('f-bd').value;
+  d.lang=currentLang;
   lsSet(sk(currentUser),d);
-  var t=document.getElementById('save-toast');
-  t.style.display='block';
-  setTimeout(function(){t.style.display='none';},2500);
+  var toast=document.getElementById('save-toast');
+  toast.textContent=t.save_ok;
+  toast.style.display='block';
+  setTimeout(function(){toast.style.display='none';},2500);
   buildStudents();
 }
 
@@ -489,7 +812,11 @@ function goPage(name){
   var saved=lsGet('ec_user');
   if(saved){
     for(var i=0;i<STUDENTS.length;i++){
-      if(STUDENTS[i]===saved){currentUser=saved;launchApp();return;}
+      if(STUDENTS[i]===saved){
+        currentUser=saved;
+        launchApp();
+        return;
+      }
     }
   }
 })();
