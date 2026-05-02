@@ -82,8 +82,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .next-name{font-weight:700;font-size:15px}
 .next-date{color:var(--text2);font-size:13px;margin-top:3px}
 .days-chip{background:var(--gold);color:#1a1200;font-size:12px;font-weight:800;padding:5px 12px;border-radius:20px;white-space:nowrap;flex-shrink:0}
-.days-chip.soon{background:linear-gradient(135deg,#f0b429,#e07010);animation:glow 2s infinite}
-@keyframes glow{0%,100%{box-shadow:none}50%{box-shadow:0 0 14px rgba(240,180,41,0.5)}}
+.days-chip.soon{background:linear-gradient(135deg,#f0b429,#e07010);animation:glow-pulse 2s infinite}
+@keyframes glow-pulse{0%,100%{box-shadow:none}50%{box-shadow:0 0 14px rgba(240,180,41,0.5)}}
 
 /* SCHEDULE */
 .sched-card{margin:0 16px;background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden}
@@ -115,16 +115,17 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .ava{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;overflow:hidden;background:linear-gradient(135deg,#2a1f00,#4a3800)}
 .ava img{width:100%;height:100%;object-fit:cover;border-radius:13px}
 .s-info{flex:1;min-width:0}
-.s-name-row{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.s-name-row{display:flex;align-items:center;gap:6px}
 .s-name{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.s-complete-icon{width:16px;height:16px;flex-shrink:0}
 .s-icons{display:flex;gap:5px;align-items:center;flex-shrink:0}
-.s-icon-link{width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;transition:transform .15s;text-decoration:none;flex-shrink:0}
+.s-icon-link{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .15s;text-decoration:none;flex-shrink:0}
 .s-icon-link:active{transform:scale(0.9)}
 .s-icon-link.ig{background:rgba(225,48,108,0.15)}
 .s-icon-link.tg{background:rgba(41,182,246,0.15)}
 .s-icon-link.filled{opacity:1}
-.s-icon-link.empty{opacity:0.25;pointer-events:none}
-.s-check{color:var(--green);font-size:12px}
+.s-icon-link.empty{opacity:0.22;pointer-events:none}
+.s-icon-link img{width:16px;height:16px;object-fit:contain;display:block}
 .s-role{color:var(--text2);font-size:12px;margin-top:3px}
 .s-arr{color:var(--text3);font-size:20px;font-weight:300;flex-shrink:0}
 
@@ -144,12 +145,14 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .info-block-hdr{font-size:11px;font-weight:700;color:var(--text2);letter-spacing:0.8px;text-transform:uppercase;padding:14px 18px 8px}
 .info-row{display:flex;align-items:center;padding:12px 18px;border-top:1px solid var(--border);gap:12px}
 .info-icon{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.info-icon img{width:18px;height:18px;object-fit:contain}
 .info-body{flex:1;min-width:0}
 .info-lbl{font-size:11px;color:var(--text2);font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
 .info-val{font-size:14px;font-weight:500;margin-top:2px}
 .info-empty{font-size:14px;color:var(--text3);font-style:italic;margin-top:2px}
 .d-social-row{display:flex;gap:10px;margin-top:16px}
 .d-social-btn{display:flex;align-items:center;gap:7px;padding:10px 16px;border-radius:12px;font-size:13px;font-weight:600;text-decoration:none;transition:opacity .15s;flex:1;justify-content:center}
+.d-social-btn img{width:17px;height:17px;object-fit:contain}
 .d-social-btn:active{opacity:0.8}
 .d-social-btn.ig{background:rgba(225,48,108,0.15);color:#e1306c}
 .d-social-btn.tg{background:rgba(41,182,246,0.15);color:#29b6f6}
@@ -161,7 +164,10 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .my-ava{width:88px;height:88px;border-radius:26px;background:linear-gradient(135deg,#2a1f00,#4a3800);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;overflow:hidden;box-shadow:0 6px 28px rgba(0,0,0,0.4),0 0 0 1px rgba(240,180,41,0.15)}
 .my-ava img{width:100%;height:100%;object-fit:cover}
 .ava-edit{position:absolute;bottom:-4px;right:-4px;width:28px;height:28px;background:linear-gradient(135deg,#f0b429,#c8860a);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:13px;box-shadow:0 2px 8px rgba(240,180,41,0.4)}
-.my-name-lbl{font-size:20px;font-weight:800;letter-spacing:-0.4px;margin-top:12px}
+/* profile name row with optional check */
+.my-name-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px}
+.my-name-lbl{font-size:20px;font-weight:800;letter-spacing:-0.4px}
+.my-profile-check{width:22px;height:22px;display:none}
 .tap-hint{font-size:12px;color:var(--text3);margin-top:5px}
 
 /* LANG SWITCHER */
@@ -254,7 +260,12 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
           <input type="file" id="ava-file" accept="image/*" style="display:none" onchange="onAvaChange(this)">
         </div>
         <div class="tap-hint" id="tap-hint-lbl">Tap to change photo</div>
-        <div class="my-name-lbl" id="my-name-lbl"></div>
+        <!-- name + check icon row -->
+        <div class="my-name-row">
+          <div class="my-name-lbl" id="my-name-lbl"></div>
+          <img class="my-profile-check" id="my-profile-check"
+               src="https://i.postimg.cc/tgq7fghK/free-icon-success-5582932.png" alt="✓">
+        </div>
       </div>
 
       <div class="lang-section">
@@ -323,11 +334,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div class="info-block">
     <div class="info-block-hdr" id="d-hdr-social">Social Media</div>
     <div class="info-row">
-      <div class="info-icon" style="background:rgba(225,48,108,0.12)">📸</div>
+      <div class="info-icon" style="background:rgba(225,48,108,0.12)">
+        <img src="https://i.postimg.cc/vHCj8PXr/free-icon-instagram-15713420.png" alt="ig">
+      </div>
       <div class="info-body"><div class="info-lbl">Instagram</div><div id="d-ig"></div></div>
     </div>
     <div class="info-row">
-      <div class="info-icon" style="background:rgba(41,182,246,0.12)">✈️</div>
+      <div class="info-icon" style="background:rgba(41,182,246,0.12)">
+        <img src="https://i.postimg.cc/ryPZgn6L/free-icon-telegram-2111646.png" alt="tg">
+      </div>
       <div class="info-body"><div class="info-lbl">Telegram</div><div id="d-tg"></div></div>
     </div>
   </div>
@@ -346,33 +361,58 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 </div>
 
 <script>
-var UNIT_TESTS=[
-  {unit:"Unit 1.4",date:"2025-04-28"},
-  {unit:"Unit 2.4",date:"2025-05-02"},
-  {unit:"Unit 3.4",date:"2025-05-07"},
-  {unit:"Unit 4.4",date:"2025-05-16"},
-  {unit:"Unit 5.4",date:"2025-05-23"},
-  {unit:"Unit 6.4",date:"2025-05-30"},
-  {unit:"Unit 7.4",date:"2025-06-06"},
-  {unit:"Unit 8.4",date:"2025-06-11"},
-  {unit:"Unit 9.4",date:"2025-06-16"},
-  {unit:"Unit 10.4",date:"2025-06-23"}
+/* ───────────────────────────────────────────────
+   ICON URLS
+─────────────────────────────────────────────── */
+var IC_CHECK = "https://i.postimg.cc/tgq7fghK/free-icon-success-5582932.png";
+var IC_IG    = "https://i.postimg.cc/vHCj8PXr/free-icon-instagram-15713420.png";
+var IC_TG    = "https://i.postimg.cc/ryPZgn6L/free-icon-telegram-2111646.png";
+
+/* ───────────────────────────────────────────────
+   DATA  —  dates fixed to 2026
+─────────────────────────────────────────────── */
+var CLASS_START = new Date("2026-04-21T00:00:00");
+
+var UNIT_TESTS = [
+  {unit:"Unit 1.4",  date:"2026-04-28"},
+  {unit:"Unit 2.4",  date:"2026-05-02"},
+  {unit:"Unit 3.4",  date:"2026-05-07"},
+  {unit:"Unit 4.4",  date:"2026-05-16"},
+  {unit:"Unit 5.4",  date:"2026-05-23"},
+  {unit:"Unit 6.4",  date:"2026-05-30"},
+  {unit:"Unit 7.4",  date:"2026-06-06"},
+  {unit:"Unit 8.4",  date:"2026-06-11"},
+  {unit:"Unit 9.4",  date:"2026-06-16"},
+  {unit:"Unit 10.4", date:"2026-06-23"}
 ];
 
-var STUDENTS=[
-  "Muhammadali Yusufjonov","Asliddin Shaxabiddinov","Viktoriya Stergiu",
-  "Avaz Muxitdinov","Durdona Ollamurodova","Muhammad Toraev",
-  "Dilnoza Sadullaeva","Rasul Uktamov","Xushnudbek Qurbonov",
-  "Farangiz Eshboyeva","Jasmina Azadova","Muhammad Umidov",
-  "Abdurauf Alimov","Shamsiddin Farxodov","Ravshan Muslimov"
+/* Students sorted A→Z by last name */
+var STUDENTS = [
+  "Abdurauf Alimov",
+  "Asliddin Shaxabiddinov",
+  "Avaz Muxitdinov",
+  "Dilnoza Sadullaeva",
+  "Durdona Ollamurodova",
+  "Farangiz Eshboyeva",
+  "Jasmina Azadova",
+  "Muhammad Toraev",
+  "Muhammad Umidov",
+  "Muhammadali Yusufjonov",
+  "Rasul Uktamov",
+  "Ravshan Muslimov",
+  "Shamsiddin Farxodov",
+  "Viktoriya Stergiu",
+  "Xushnudbek Qurbonov"
 ];
 
-var CLASS_START = new Date("2025-04-21T00:00:00");
-var PAGES=['home','lessons','students','profile'];
-var currentUser=null;
-var currentLang='en';
+var PAGES = ['home','lessons','students','profile'];
+var currentUser = null;
+var currentLang = 'en';
 
-var LANGS={
+/* ───────────────────────────────────────────────
+   TRANSLATIONS
+─────────────────────────────────────────────── */
+var LANGS = {
   en:{
     ob_sub:"Enter your name to access the class portal",
     ob_btn:"Continue →",
@@ -391,7 +431,8 @@ var LANGS={
     sb:"Weekly",
     lessons_h1:"Lessons",
     lessons_sub:"Unit test schedule",
-    badge_done:"Done ✓",
+    /* ← "Пройден" in EN */
+    badge_done:"Completed ✓",
     badge_next:"Next",
     badge_upcoming:"Upcoming",
     students_h1:"Students",
@@ -428,7 +469,7 @@ var LANGS={
     hero_hi:"С возвращением,",
     h_days:"Дней обучения",
     h_lessons:"Уроков пройдено",
-    h_tests:"Тестов сдано",
+    h_tests:"Тестов пройдено",
     lbl_next:"Следующий юнит тест",
     lbl_schedule:"Расписание занятий",
     sd:["ВТ","ЧТ","СБ"],
@@ -436,7 +477,8 @@ var LANGS={
     sb:"Еженедельно",
     lessons_h1:"Уроки",
     lessons_sub:"Расписание юнит тестов",
-    badge_done:"Сдан ✓",
+    /* ← исправлено: Пройден вместо Сдан */
+    badge_done:"Пройден ✓",
     badge_next:"Следующий",
     badge_upcoming:"Предстоит",
     students_h1:"Студенты",
@@ -473,7 +515,7 @@ var LANGS={
     hero_hi:"Xush kelibsiz,",
     h_days:"O'quv kunlari",
     h_lessons:"O'tilgan darslar",
-    h_tests:"Topshirilgan testlar",
+    h_tests:"O'tilgan testlar",
     lbl_next:"Keyingi Unit Test",
     lbl_schedule:"Dars jadvali",
     sd:["SE","PA","SH"],
@@ -481,7 +523,7 @@ var LANGS={
     sb:"Har hafta",
     lessons_h1:"Darslar",
     lessons_sub:"Unit test jadvali",
-    badge_done:"Topshirildi ✓",
+    badge_done:"O'tildi ✓",
     badge_next:"Keyingi",
     badge_upcoming:"Kutilmoqda",
     students_h1:"O'quvchilar",
@@ -506,51 +548,71 @@ var LANGS={
     chip_today:"Bugun!",
     chip_tomorrow:"Ertaga",
     chip_days:" kun",
-    all_done:"🎉 Barcha unit testlar topshirildi!"
+    all_done:"🎉 Barcha unit testlar o'tildi!"
   }
 };
 
-var tg=(window.Telegram&&window.Telegram.WebApp)?window.Telegram.WebApp:null;
-if(tg){tg.ready();tg.expand();}
+/* ───────────────────────────────────────────────
+   UTILS
+─────────────────────────────────────────────── */
+var tg = (window.Telegram && window.Telegram.WebApp) ? window.Telegram.WebApp : null;
+if(tg){ tg.ready(); tg.expand(); }
 
-function sk(n){return'ec_'+n.replace(/\s+/g,'_').toLowerCase();}
-function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
-function lsGet(k){try{var v=localStorage.getItem(k);return v?JSON.parse(v):null;}catch(e){return null;}}
+function sk(n){ return 'ec_' + n.replace(/\s+/g,'_').toLowerCase(); }
+function lsSet(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+function lsGet(k){ try{ var v=localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function initials(n){ var p=n.trim().split(' '); return p.length>=2 ? (p[0][0]+p[p.length-1][0]).toUpperCase() : n.substring(0,2).toUpperCase(); }
+function L(){ return LANGS[currentLang] || LANGS.en; }
 
-function initials(n){var p=n.trim().split(' ');return p.length>=2?(p[0][0]+p[p.length-1][0]).toUpperCase():n.substring(0,2).toUpperCase();}
-
-var MONTHS_EN=['January','February','March','April','May','June','July','August','September','October','November','December'];
-var MONTHS_RU=['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
-var MONTHS_UZ=['yanvar','fevral','mart','aprel','may','iyun','iyul','avgust','sentabr','oktabr','noyabr','dekabr'];
+var MONTHS_EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+var MONTHS_RU = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+var MONTHS_UZ = ['yanvar','fevral','mart','aprel','may','iyun','iyul','avgust','sentabr','oktabr','noyabr','dekabr'];
 
 function fmtDate(s){
-  var d=new Date(s+'T12:00:00');
-  var mo=currentLang==='ru'?MONTHS_RU:currentLang==='uz'?MONTHS_UZ:MONTHS_EN;
-  if(currentLang==='ru')return d.getDate()+' '+mo[d.getMonth()]+' '+d.getFullYear();
+  var d = new Date(s+'T12:00:00');
+  var mo = currentLang==='ru' ? MONTHS_RU : currentLang==='uz' ? MONTHS_UZ : MONTHS_EN;
+  if(currentLang==='ru') return d.getDate()+' '+mo[d.getMonth()]+' '+d.getFullYear();
   return mo[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();
 }
 
 function calcAge(s){
-  var bd=new Date(s+'T12:00:00'),now=new Date();
-  var age=now.getFullYear()-bd.getFullYear();
-  if(now.getMonth()-bd.getMonth()<0||(now.getMonth()-bd.getMonth()===0&&now.getDate()<bd.getDate()))age--;
+  var bd=new Date(s+'T12:00:00'), now=new Date();
+  var age = now.getFullYear()-bd.getFullYear();
+  if(now.getMonth()-bd.getMonth()<0 || (now.getMonth()-bd.getMonth()===0 && now.getDate()<bd.getDate())) age--;
   return age;
 }
 
-function setAva(el,src){el.innerHTML='<img src="'+src+'" style="width:100%;height:100%;object-fit:cover">';}
-function textAva(el,name){el.textContent=initials(name);}
+function setAva(el,src){ el.innerHTML='<img src="'+src+'" style="width:100%;height:100%;object-fit:cover">'; }
+function textAva(el,name){ el.textContent=initials(name); }
 
-function L(){return LANGS[currentLang]||LANGS.en;}
+/* Profile is "complete" when instagram OR telegram is filled AND birthday is set */
+function isComplete(saved){
+  if(!saved) return false;
+  var hasSocial = !!(saved.instagram&&saved.instagram.trim()) || !!(saved.telegram&&saved.telegram.trim());
+  var hasBd     = !!(saved.birthday&&saved.birthday.trim());
+  return hasSocial && hasBd;
+}
 
+/* Refresh the check icon next to the current user's name in Profile tab */
+function refreshProfileCheck(){
+  var el = document.getElementById('my-profile-check');
+  if(!el || !currentUser) return;
+  var ok = isComplete(lsGet(sk(currentUser)));
+  el.style.display = ok ? 'block' : 'none';
+}
+
+/* ───────────────────────────────────────────────
+   LANG
+─────────────────────────────────────────────── */
 function setLang(lang){
-  currentLang=lang;
+  currentLang = lang;
   ['en','ru','uz'].forEach(function(l){
     document.getElementById('lang-'+l).classList[l===lang?'add':'remove']('active');
   });
   if(currentUser){
-    var d=lsGet(sk(currentUser))||{};
-    d.lang=lang;
-    lsSet(sk(currentUser),d);
+    var d = lsGet(sk(currentUser)) || {};
+    d.lang = lang;
+    lsSet(sk(currentUser), d);
   }
   applyLang();
   buildHome();
@@ -559,265 +621,315 @@ function setLang(lang){
 }
 
 function applyLang(){
-  var t=L();
-  document.getElementById('ob-sub-text').textContent=t.ob_sub;
-  document.getElementById('ob-btn-lbl').textContent=t.ob_btn;
-  document.getElementById('home-sub').textContent=t.home_sub;
-  document.getElementById('hero-hi').textContent=t.hero_hi;
-  document.getElementById('h-days-lbl').textContent=t.h_days;
-  document.getElementById('h-lessons-lbl').textContent=t.h_lessons;
-  document.getElementById('h-tests-lbl').textContent=t.h_tests;
-  document.getElementById('lbl-next-test').textContent=t.lbl_next;
-  document.getElementById('lbl-schedule').textContent=t.lbl_schedule;
-  document.getElementById('sd1').textContent=t.sd[0];document.getElementById('sd2').textContent=t.sd[1];document.getElementById('sd3').textContent=t.sd[2];
-  document.getElementById('st1').textContent=t.st[0];document.getElementById('st2').textContent=t.st[1];document.getElementById('st3').textContent=t.st[2];
-  document.getElementById('sb1').textContent=t.sb;document.getElementById('sb2').textContent=t.sb;document.getElementById('sb3').textContent=t.sb;
-  document.getElementById('lessons-h1').textContent=t.lessons_h1;
-  document.getElementById('lessons-sub').textContent=t.lessons_sub;
-  document.getElementById('students-h1').textContent=t.students_h1;
-  document.getElementById('students-sub').textContent=t.students_sub;
-  document.getElementById('profile-h1').textContent=t.profile_h1;
-  document.getElementById('profile-sub').textContent=t.profile_sub;
-  document.getElementById('tap-hint-lbl').textContent=t.tap_hint;
-  document.getElementById('lang-lbl-text').textContent=t.lang_lbl;
-  document.getElementById('lbl-ig').textContent=t.lbl_ig;
-  document.getElementById('lbl-tg').textContent=t.lbl_tg;
-  document.getElementById('lbl-bd').textContent=t.lbl_bd;
-  document.getElementById('save-btn-lbl').textContent=t.save_btn;
-  document.getElementById('detail-bar-title').textContent=t.detail_title;
-  document.getElementById('d-hdr-social').textContent=t.d_social;
-  document.getElementById('d-hdr-personal').textContent=t.d_personal;
-  document.getElementById('d-lbl-bd').textContent=t.d_bd;
-  document.getElementById('d-lbl-age').textContent=t.d_age;
-  var nav=t.nav;
-  document.getElementById('nav-home-lbl').textContent=nav[0];
-  document.getElementById('nav-lessons-lbl').textContent=nav[1];
-  document.getElementById('nav-students-lbl').textContent=nav[2];
-  document.getElementById('nav-profile-lbl').textContent=nav[3];
+  var t = L();
+  document.getElementById('ob-sub-text').textContent  = t.ob_sub;
+  document.getElementById('ob-btn-lbl').textContent   = t.ob_btn;
+  document.getElementById('home-sub').textContent     = t.home_sub;
+  document.getElementById('hero-hi').textContent      = t.hero_hi;
+  document.getElementById('h-days-lbl').textContent   = t.h_days;
+  document.getElementById('h-lessons-lbl').textContent= t.h_lessons;
+  document.getElementById('h-tests-lbl').textContent  = t.h_tests;
+  document.getElementById('lbl-next-test').textContent= t.lbl_next;
+  document.getElementById('lbl-schedule').textContent = t.lbl_schedule;
+  document.getElementById('sd1').textContent=t.sd[0]; document.getElementById('sd2').textContent=t.sd[1]; document.getElementById('sd3').textContent=t.sd[2];
+  document.getElementById('st1').textContent=t.st[0]; document.getElementById('st2').textContent=t.st[1]; document.getElementById('st3').textContent=t.st[2];
+  document.getElementById('sb1').textContent=t.sb; document.getElementById('sb2').textContent=t.sb; document.getElementById('sb3').textContent=t.sb;
+  document.getElementById('lessons-h1').textContent   = t.lessons_h1;
+  document.getElementById('lessons-sub').textContent  = t.lessons_sub;
+  document.getElementById('students-h1').textContent  = t.students_h1;
+  document.getElementById('students-sub').textContent = t.students_sub;
+  document.getElementById('profile-h1').textContent   = t.profile_h1;
+  document.getElementById('profile-sub').textContent  = t.profile_sub;
+  document.getElementById('tap-hint-lbl').textContent = t.tap_hint;
+  document.getElementById('lang-lbl-text').textContent= t.lang_lbl;
+  document.getElementById('lbl-ig').textContent       = t.lbl_ig;
+  document.getElementById('lbl-tg').textContent       = t.lbl_tg;
+  document.getElementById('lbl-bd').textContent       = t.lbl_bd;
+  document.getElementById('save-btn-lbl').textContent = t.save_btn;
+  document.getElementById('detail-bar-title').textContent = t.detail_title;
+  document.getElementById('d-hdr-social').textContent = t.d_social;
+  document.getElementById('d-hdr-personal').textContent = t.d_personal;
+  document.getElementById('d-lbl-bd').textContent     = t.d_bd;
+  document.getElementById('d-lbl-age').textContent    = t.d_age;
+  var nav = t.nav;
+  document.getElementById('nav-home-lbl').textContent    = nav[0];
+  document.getElementById('nav-lessons-lbl').textContent = nav[1];
+  document.getElementById('nav-students-lbl').textContent= nav[2];
+  document.getElementById('nav-profile-lbl').textContent = nav[3];
 }
 
+/* ───────────────────────────────────────────────
+   LOGIN
+─────────────────────────────────────────────── */
 function doLogin(){
-  var fn=(document.getElementById('ob-fn').value||'').trim();
-  var ln=(document.getElementById('ob-ln').value||'').trim();
-  var err=document.getElementById('ob-err');
-  var t=L();
-  err.style.display='none';
-  if(!fn||!ln){err.textContent=t.ob_err_empty;err.style.display='block';return;}
-  var full=fn+' '+ln;
-  var match=null;
+  var fn  = (document.getElementById('ob-fn').value||'').trim();
+  var ln  = (document.getElementById('ob-ln').value||'').trim();
+  var err = document.getElementById('ob-err');
+  var t   = L();
+  err.style.display = 'none';
+  if(!fn||!ln){ err.textContent=t.ob_err_empty; err.style.display='block'; return; }
+  var full  = fn+' '+ln;
+  var match = null;
   for(var i=0;i<STUDENTS.length;i++){
-    if(STUDENTS[i].toLowerCase()===full.toLowerCase()){match=STUDENTS[i];break;}
+    if(STUDENTS[i].toLowerCase()===full.toLowerCase()){ match=STUDENTS[i]; break; }
   }
-  if(!match){err.textContent=t.ob_err_notfound;err.style.display='block';return;}
-  currentUser=match;
-  lsSet('ec_user',match);
+  if(!match){ err.textContent=t.ob_err_notfound; err.style.display='block'; return; }
+  currentUser = match;
+  lsSet('ec_user', match);
   launchApp();
 }
 
-document.getElementById('ob-fn').addEventListener('keydown',function(e){if(e.key==='Enter')document.getElementById('ob-ln').focus();});
-document.getElementById('ob-ln').addEventListener('keydown',function(e){if(e.key==='Enter')doLogin();});
+document.getElementById('ob-fn').addEventListener('keydown',function(e){ if(e.key==='Enter') document.getElementById('ob-ln').focus(); });
+document.getElementById('ob-ln').addEventListener('keydown',function(e){ if(e.key==='Enter') doLogin(); });
 
+/* ───────────────────────────────────────────────
+   STATS
+─────────────────────────────────────────────── */
 function calcStats(){
-  var now=new Date();now.setHours(0,0,0,0);
-  var days=Math.floor((now-CLASS_START)/86400000)+1;
-  if(days<0)days=0;
-  // count lessons (Tue=2, Thu=4, Sat=6) since start inclusive up to today
-  var lessons=0;
-  var d=new Date(CLASS_START);
-  while(d<=now){var dw=d.getDay();if(dw===2||dw===4||dw===6)lessons++;d.setDate(d.getDate()+1);}
-  // count passed tests
-  var tests=0;
+  var now = new Date(); now.setHours(0,0,0,0);
+  var start = new Date(CLASS_START); start.setHours(0,0,0,0);
+  var days = Math.max(0, Math.floor((now - start) / 86400000) + 1);
+  var lessons = 0;
+  var d = new Date(start);
+  while(d <= now){ var dw=d.getDay(); if(dw===2||dw===4||dw===6) lessons++; d.setDate(d.getDate()+1); }
+  var tests = 0;
   for(var i=0;i<UNIT_TESTS.length;i++){
-    var td=new Date(UNIT_TESTS[i].date+'T00:00:00');
-    if(td<now)tests++;
+    if(new Date(UNIT_TESTS[i].date+'T00:00:00') < now) tests++;
   }
-  return{days:days,lessons:lessons,tests:tests};
+  return {days:days, lessons:lessons, tests:tests};
 }
 
+/* ───────────────────────────────────────────────
+   LAUNCH
+─────────────────────────────────────────────── */
 function launchApp(){
   document.getElementById('onboard-screen').classList.add('hidden');
-  document.getElementById('app').style.display='flex';
+  document.getElementById('app').style.display = 'flex';
 
-  var saved=lsGet(sk(currentUser));
-  if(saved&&saved.lang){currentLang=saved.lang;['en','ru','uz'].forEach(function(l){document.getElementById('lang-'+l).classList[l===currentLang?'add':'remove']('active');});}
-
-  applyLang();
-  var t=L();
-
-  document.getElementById('home-h1').textContent=t.home_greeting+' '+currentUser.split(' ')[0]+' 👋';
-  document.getElementById('hero-name').textContent=currentUser;
-  document.getElementById('my-name-lbl').textContent=currentUser;
-
-  var myAva=document.getElementById('my-ava');
-  if(saved&&saved.avatar){setAva(myAva,saved.avatar);}else{textAva(myAva,currentUser);}
-  if(saved){
-    if(saved.instagram)document.getElementById('f-ig').value=saved.instagram;
-    if(saved.telegram)document.getElementById('f-tg').value=saved.telegram;
-    if(saved.birthday)document.getElementById('f-bd').value=saved.birthday;
+  var saved = lsGet(sk(currentUser));
+  if(saved && saved.lang){
+    currentLang = saved.lang;
+    ['en','ru','uz'].forEach(function(l){ document.getElementById('lang-'+l).classList[l===currentLang?'add':'remove']('active'); });
   }
 
+  applyLang();
+  var t = L();
+  document.getElementById('home-h1').textContent  = t.home_greeting+' '+currentUser.split(' ')[0]+' 👋';
+  document.getElementById('hero-name').textContent = currentUser;
+  document.getElementById('my-name-lbl').textContent = currentUser;
+
+  var myAva = document.getElementById('my-ava');
+  if(saved && saved.avatar){ setAva(myAva, saved.avatar); } else { textAva(myAva, currentUser); }
+  if(saved){
+    if(saved.instagram) document.getElementById('f-ig').value = saved.instagram;
+    if(saved.telegram)  document.getElementById('f-tg').value = saved.telegram;
+    if(saved.birthday)  document.getElementById('f-bd').value = saved.birthday;
+  }
+
+  refreshProfileCheck();
   buildHome();
   buildLessons();
   buildStudents();
   goPage('home');
 }
 
+/* ───────────────────────────────────────────────
+   BUILD HOME
+─────────────────────────────────────────────── */
 function buildHome(){
-  var t=L();
-  var s=calcStats();
-  document.getElementById('h-days').textContent=s.days;
-  document.getElementById('h-lessons').textContent=s.lessons;
-  document.getElementById('h-tests').textContent=s.tests;
-  document.getElementById('h-days-lbl').textContent=t.h_days;
-  document.getElementById('h-lessons-lbl').textContent=t.h_lessons;
-  document.getElementById('h-tests-lbl').textContent=t.h_tests;
+  var t = L();
+  var s = calcStats();
+  document.getElementById('h-days').textContent    = s.days;
+  document.getElementById('h-lessons').textContent = s.lessons;
+  document.getElementById('h-tests').textContent   = s.tests;
+  document.getElementById('h-days-lbl').textContent    = t.h_days;
+  document.getElementById('h-lessons-lbl').textContent = t.h_lessons;
+  document.getElementById('h-tests-lbl').textContent   = t.h_tests;
 
-  var now=new Date();now.setHours(0,0,0,0);
-  var next=null;
+  var now  = new Date(); now.setHours(0,0,0,0);
+  var next = null;
   for(var i=0;i<UNIT_TESTS.length;i++){
-    var d=new Date(UNIT_TESTS[i].date+'T00:00:00');
-    if(d>=now){next=UNIT_TESTS[i];break;}
+    var d = new Date(UNIT_TESTS[i].date+'T00:00:00');
+    if(d >= now){ next = UNIT_TESTS[i]; break; }
   }
-  var wrap=document.getElementById('next-test-wrap');
+  var wrap = document.getElementById('next-test-wrap');
   if(!next){
-    wrap.innerHTML='<div style="margin:0 16px;padding:16px 18px;background:var(--surface);border:1px solid var(--border);border-radius:16px;color:var(--text2);font-size:14px;text-align:center">'+t.all_done+'</div>';
+    wrap.innerHTML = '<div style="margin:0 16px;padding:16px 18px;background:var(--surface);border:1px solid var(--border);border-radius:16px;color:var(--text2);font-size:14px;text-align:center">'+t.all_done+'</div>';
     return;
   }
-  var d2=new Date(next.date+'T00:00:00');
-  var diff=Math.round((d2-now)/86400000);
-  var cc=diff<=3?'days-chip soon':'days-chip';
-  var lbl=diff===0?t.chip_today:diff===1?t.chip_tomorrow:diff+t.chip_days;
-  wrap.innerHTML='<div class="next-card"><div class="next-icon">📝</div><div class="next-info"><div class="next-name">'+next.unit+'</div><div class="next-date">'+fmtDate(next.date)+'</div></div><div class="'+cc+'">'+lbl+'</div></div>';
+  var d2   = new Date(next.date+'T00:00:00');
+  var diff = Math.round((d2 - now) / 86400000);
+  var cc   = diff <= 3 ? 'days-chip soon' : 'days-chip';
+  var lbl  = diff === 0 ? t.chip_today : diff === 1 ? t.chip_tomorrow : diff + t.chip_days;
+  wrap.innerHTML = '<div class="next-card"><div class="next-icon">📝</div><div class="next-info"><div class="next-name">'+next.unit+'</div><div class="next-date">'+fmtDate(next.date)+'</div></div><div class="'+cc+'">'+lbl+'</div></div>';
 }
 
+/* ───────────────────────────────────────────────
+   BUILD LESSONS
+─────────────────────────────────────────────── */
 function buildLessons(){
-  var t=L();
-  var now=new Date();now.setHours(0,0,0,0);
-  var foundNext=false,html='';
+  var t   = L();
+  var now = new Date(); now.setHours(0,0,0,0);
+  var foundNext = false, html = '';
   for(var i=0;i<UNIT_TESTS.length;i++){
-    var ut=UNIT_TESTS[i];
-    var d=new Date(ut.date+'T00:00:00');
-    var done=d<now;
-    var isNext=!done&&!foundNext;
-    if(isNext)foundNext=true;
-    var c=done?'done':(isNext?'next':'upcoming');
-    var b=done?t.badge_done:(isNext?t.badge_next:t.badge_upcoming);
-    html+='<div class="lesson-card"><div class="l-num '+c+'">'+(i+1)+'</div><div class="l-info"><div class="l-name">'+ut.unit+'</div><div class="l-date">'+fmtDate(ut.date)+'</div></div><div class="l-badge '+c+'">'+b+'</div></div>';
+    var ut   = UNIT_TESTS[i];
+    var d    = new Date(ut.date+'T00:00:00');
+    var done = d < now;
+    var isNext = !done && !foundNext;
+    if(isNext) foundNext = true;
+    var c = done ? 'done' : (isNext ? 'next' : 'upcoming');
+    var b = done ? t.badge_done : (isNext ? t.badge_next : t.badge_upcoming);
+    html += '<div class="lesson-card"><div class="l-num '+c+'">'+(i+1)+'</div><div class="l-info"><div class="l-name">'+ut.unit+'</div><div class="l-date">'+fmtDate(ut.date)+'</div></div><div class="l-badge '+c+'">'+b+'</div></div>';
   }
-  document.getElementById('lessons-list').innerHTML=html;
+  document.getElementById('lessons-list').innerHTML = html;
 }
 
+/* ───────────────────────────────────────────────
+   BUILD STUDENTS
+─────────────────────────────────────────────── */
 function buildStudents(){
-  var t=L();
-  var html='';
+  var html = '';
   for(var i=0;i<STUDENTS.length;i++){
-    var name=STUDENTS[i];
-    var saved=lsGet(sk(name))||{};
-    var avaHtml=saved.avatar?'<img src="'+saved.avatar+'" style="width:100%;height:100%;object-fit:cover;border-radius:13px">':initials(name);
-    var hasIg=!!(saved.instagram&&saved.instagram.trim());
-    var hasTg=!!(saved.telegram&&saved.telegram.trim());
-    var igHref=hasIg?'https://instagram.com/'+saved.instagram.replace('@','').trim():'#';
-    var tgHref=hasTg?'https://t.me/'+saved.telegram.replace('@','').trim():'#';
-    var igCls='s-icon-link ig '+(hasIg?'filled':'empty');
-    var tgCls='s-icon-link tg '+(hasTg?'filled':'empty');
-    var checkMark=(hasIg||hasTg)?'<span class="s-check">✓</span>':'';
-    var safeName=name.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-    html+='<div class="student-card"><div class="ava" onclick="openDetail(\''+safeName+'\')">'+avaHtml+'</div>';
-    html+='<div class="s-info" onclick="openDetail(\''+safeName+'\')"><div class="s-name-row"><div class="s-name">'+name+'</div>'+checkMark+'</div><div class="s-role">Student</div></div>';
-    html+='<div class="s-icons">';
-    if(hasIg)html+='<a class="'+igCls+'" href="'+igHref+'" target="_blank">📸</a>';
-    else html+='<span class="'+igCls+'">📸</span>';
-    if(hasTg)html+='<a class="'+tgCls+'" href="'+tgHref+'" target="_blank">✈️</a>';
-    else html+='<span class="'+tgCls+'">✈️</span>';
-    html+='</div>';
-    html+='<div class="s-arr" onclick="openDetail(\''+safeName+'\')">›</div></div>';
+    var name  = STUDENTS[i];
+    var saved = lsGet(sk(name)) || {};
+    var avaHtml = saved.avatar
+      ? '<img src="'+saved.avatar+'" style="width:100%;height:100%;object-fit:cover;border-radius:13px">'
+      : initials(name);
+
+    var hasIg = !!(saved.instagram && saved.instagram.trim());
+    var hasTg = !!(saved.telegram  && saved.telegram.trim());
+    var igHref = hasIg ? 'https://instagram.com/'+saved.instagram.replace('@','').trim() : '#';
+    var tgHref = hasTg ? 'https://t.me/'         +saved.telegram.replace('@','').trim()  : '#';
+
+    var igCls = 's-icon-link ig '+(hasIg?'filled':'empty');
+    var tgCls = 's-icon-link tg '+(hasTg?'filled':'empty');
+
+    /* ← new check icon (complete profile) */
+    var checkHtml = isComplete(saved)
+      ? '<img class="s-complete-icon" src="'+IC_CHECK+'" alt="✓">'
+      : '';
+
+    var safe = name.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+
+    html += '<div class="student-card">';
+    html += '<div class="ava" onclick="openDetail(\''+safe+'\')">'+avaHtml+'</div>';
+    html += '<div class="s-info" onclick="openDetail(\''+safe+'\')"><div class="s-name-row"><div class="s-name">'+name+'</div>'+checkHtml+'</div><div class="s-role">Student</div></div>';
+    html += '<div class="s-icons">';
+    if(hasIg) html += '<a class="'+igCls+'" href="'+igHref+'" target="_blank"><img src="'+IC_IG+'" alt="ig"></a>';
+    else      html += '<span class="'+igCls+'"><img src="'+IC_IG+'" alt="ig"></span>';
+    if(hasTg) html += '<a class="'+tgCls+'" href="'+tgHref+'" target="_blank"><img src="'+IC_TG+'" alt="tg"></a>';
+    else      html += '<span class="'+tgCls+'"><img src="'+IC_TG+'" alt="tg"></span>';
+    html += '</div>';
+    html += '<div class="s-arr" onclick="openDetail(\''+safe+'\')">›</div>';
+    html += '</div>';
   }
-  document.getElementById('students-list').innerHTML=html;
+  document.getElementById('students-list').innerHTML = html;
 }
 
+/* ───────────────────────────────────────────────
+   DETAIL
+─────────────────────────────────────────────── */
 function openDetail(name){
-  var t=L();
-  var saved=lsGet(sk(name))||{};
-  document.getElementById('d-name').textContent=name;
-  var dava=document.getElementById('d-ava');
-  if(saved.avatar){setAva(dava,saved.avatar);}else{textAva(dava,name);}
+  var t     = L();
+  var saved = lsGet(sk(name)) || {};
+  document.getElementById('d-name').textContent = name;
+  var dava = document.getElementById('d-ava');
+  if(saved.avatar){ setAva(dava, saved.avatar); } else { textAva(dava, name); }
 
-  // social buttons
-  var hasIg=!!(saved.instagram&&saved.instagram.trim());
-  var hasTg=!!(saved.telegram&&saved.telegram.trim());
-  var igHref=hasIg?'https://instagram.com/'+saved.instagram.replace('@','').trim():'#';
-  var tgHref=hasTg?'https://t.me/'+saved.telegram.replace('@','').trim():'#';
-  var socialRow='';
-  if(hasIg)socialRow+='<a class="d-social-btn ig" href="'+igHref+'" target="_blank">📸 Instagram</a>';
-  else socialRow+='<div class="d-social-btn ig disabled">📸 Instagram</div>';
-  if(hasTg)socialRow+='<a class="d-social-btn tg" href="'+tgHref+'" target="_blank">✈️ Telegram</a>';
-  else socialRow+='<div class="d-social-btn tg disabled">✈️ Telegram</div>';
-  document.getElementById('d-social-row').innerHTML=socialRow;
+  var hasIg  = !!(saved.instagram && saved.instagram.trim());
+  var hasTg  = !!(saved.telegram  && saved.telegram.trim());
+  var igHref = hasIg ? 'https://instagram.com/'+saved.instagram.replace('@','').trim() : '#';
+  var tgHref = hasTg ? 'https://t.me/'         +saved.telegram.replace('@','').trim()  : '#';
 
-  function sf(id,val){var el=document.getElementById(id);if(val)el.innerHTML='<div class="info-val">'+val+'</div>';else el.innerHTML='<div class="info-empty">'+t.not_set+'</div>';}
-  sf('d-ig',saved.instagram||'');
-  sf('d-tg',saved.telegram||'');
-  if(saved.birthday){sf('d-bd',fmtDate(saved.birthday));sf('d-age',calcAge(saved.birthday)+t.years_old);}
-  else{sf('d-bd','');sf('d-age','');}
+  var sr = '';
+  sr += hasIg
+    ? '<a class="d-social-btn ig" href="'+igHref+'" target="_blank"><img src="'+IC_IG+'"> Instagram</a>'
+    : '<div class="d-social-btn ig disabled"><img src="'+IC_IG+'"> Instagram</div>';
+  sr += hasTg
+    ? '<a class="d-social-btn tg" href="'+tgHref+'" target="_blank"><img src="'+IC_TG+'"> Telegram</a>'
+    : '<div class="d-social-btn tg disabled"><img src="'+IC_TG+'"> Telegram</div>';
+  document.getElementById('d-social-row').innerHTML = sr;
 
-  var ds=document.getElementById('detail-screen');
+  function sf(id, val){
+    var el = document.getElementById(id);
+    el.innerHTML = val
+      ? '<div class="info-val">'+val+'</div>'
+      : '<div class="info-empty">'+t.not_set+'</div>';
+  }
+  sf('d-ig', saved.instagram||'');
+  sf('d-tg', saved.telegram||'');
+  if(saved.birthday){ sf('d-bd', fmtDate(saved.birthday)); sf('d-age', calcAge(saved.birthday)+t.years_old); }
+  else { sf('d-bd',''); sf('d-age',''); }
+
+  var ds = document.getElementById('detail-screen');
   ds.classList.add('open');
-  ds.scrollTop=0;
+  ds.scrollTop = 0;
 }
 
 function closeDetail(){
   document.getElementById('detail-screen').classList.remove('open');
 }
 
+/* ───────────────────────────────────────────────
+   AVATAR CHANGE
+─────────────────────────────────────────────── */
 function onAvaChange(input){
-  var file=input.files&&input.files[0];
-  if(!file)return;
-  var reader=new FileReader();
-  reader.onload=function(e){
-    var src=e.target.result;
-    setAva(document.getElementById('my-ava'),src);
-    var d=lsGet(sk(currentUser))||{};
-    d.avatar=src;
-    lsSet(sk(currentUser),d);
+  var file = input.files && input.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = function(e){
+    var src = e.target.result;
+    setAva(document.getElementById('my-ava'), src);
+    var d = lsGet(sk(currentUser)) || {};
+    d.avatar = src;
+    lsSet(sk(currentUser), d);
     buildStudents();
   };
   reader.readAsDataURL(file);
 }
 
+/* ───────────────────────────────────────────────
+   SAVE PROFILE
+─────────────────────────────────────────────── */
 function saveProfile(){
-  var t=L();
-  var d=lsGet(sk(currentUser))||{};
-  d.instagram=document.getElementById('f-ig').value.trim();
-  d.telegram=document.getElementById('f-tg').value.trim();
-  d.birthday=document.getElementById('f-bd').value;
-  d.lang=currentLang;
-  lsSet(sk(currentUser),d);
-  var toast=document.getElementById('save-toast');
-  toast.textContent=t.save_ok;
-  toast.style.display='block';
-  setTimeout(function(){toast.style.display='none';},2500);
+  var t = L();
+  var d = lsGet(sk(currentUser)) || {};
+  d.instagram = document.getElementById('f-ig').value.trim();
+  d.telegram  = document.getElementById('f-tg').value.trim();
+  d.birthday  = document.getElementById('f-bd').value;
+  d.lang      = currentLang;
+  lsSet(sk(currentUser), d);
+  refreshProfileCheck();   // ← update check icon in Profile tab
   buildStudents();
+  var toast = document.getElementById('save-toast');
+  toast.textContent  = t.save_ok;
+  toast.style.display = 'block';
+  setTimeout(function(){ toast.style.display='none'; }, 2500);
 }
 
+/* ───────────────────────────────────────────────
+   NAVIGATION
+─────────────────────────────────────────────── */
 function goPage(name){
   for(var i=0;i<PAGES.length;i++){
-    var p=PAGES[i];
+    var p = PAGES[i];
     document.getElementById('page-'+p).classList[p===name?'add':'remove']('active');
     document.getElementById('nb-'+p).classList[p===name?'add':'remove']('active');
   }
-  document.getElementById('content').scrollTop=0;
+  document.getElementById('content').scrollTop = 0;
 }
 
+/* ───────────────────────────────────────────────
+   AUTO-LOGIN
+─────────────────────────────────────────────── */
 (function(){
-  var saved=lsGet('ec_user');
+  var saved = lsGet('ec_user');
   if(saved){
     for(var i=0;i<STUDENTS.length;i++){
-      if(STUDENTS[i]===saved){
-        currentUser=saved;
-        launchApp();
-        return;
-      }
+      if(STUDENTS[i] === saved){ currentUser = saved; launchApp(); return; }
     }
+    /* name was removed from list — clear saved session */
+    lsSet('ec_user', null);
   }
 })();
 </script>
