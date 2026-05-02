@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>English Class</title>
+<title>Inter Nation</title>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -36,7 +36,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .page.active{display:block;animation:fadeUp 0.22s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
-/* ONBOARD */
 #onboard-screen{position:fixed;inset:0;z-index:999;background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:32px 24px;background-image:radial-gradient(ellipse at 50% 20%,rgba(240,180,41,0.08),transparent 60%)}
 #onboard-screen.hidden{display:none}
 .ob-logo{width:80px;height:80px;background:linear-gradient(135deg,#f0b429,#c8860a);border-radius:24px;display:flex;align-items:center;justify-content:center;font-size:36px;margin-bottom:28px;box-shadow:0 8px 40px rgba(240,180,41,0.35),0 2px 8px rgba(0,0,0,0.4)}
@@ -50,18 +49,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .ob-btn:active{transform:scale(0.97);opacity:0.9}
 .ob-error{color:var(--red);font-size:13px;text-align:center;padding:8px 12px;background:rgba(248,113,113,0.1);border-radius:10px;display:none}
 
-/* NAV */
 #nav{position:fixed;bottom:0;left:0;right:0;height:68px;background:rgba(9,8,13,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid var(--border);display:flex;align-items:center;z-index:100}
-.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;border:none;background:transparent;color:var(--text3);font-family:var(--font);font-size:9.5px;font-weight:700;letter-spacing:0.5px;padding:8px 0;transition:color .2s;text-transform:uppercase;height:100%}
+.nav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;border:none;background:transparent;color:var(--text3);font-family:var(--font);font-size:9px;font-weight:700;letter-spacing:0.5px;padding:8px 0;transition:color .2s;text-transform:uppercase;height:100%}
 .nav-btn.active{color:var(--gold)}
 .nav-btn svg{width:22px;height:22px}
 
-/* PAGE HEADER */
 .page-header{padding:24px 20px 8px}
 .page-h1{font-size:26px;font-weight:800;letter-spacing:-0.6px}
 .page-sub{color:var(--text2);font-size:13px;margin-top:3px}
 
-/* HOME HERO */
 .hero-card{margin:16px;border-radius:22px;background:linear-gradient(135deg,#2a1f00 0%,#1a1200 50%,#0d0b08 100%);padding:24px;position:relative;overflow:hidden;border:1px solid rgba(240,180,41,0.2)}
 .hero-card::before{content:'';position:absolute;top:-80px;right:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(240,180,41,0.15),transparent 70%);border-radius:50%}
 .hero-card::after{content:'';position:absolute;bottom:-50px;left:-20px;width:160px;height:160px;background:radial-gradient(circle,rgba(240,180,41,0.07),transparent 70%);border-radius:50%}
@@ -72,10 +68,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .hero-stat-n{font-size:22px;font-weight:800;letter-spacing:-0.5px;color:var(--gold2)}
 .hero-stat-l{font-size:10px;color:rgba(240,180,41,0.55);margin-top:3px;font-weight:600;line-height:1.3}
 
-/* SECTION LABEL */
 .sec-lbl{font-size:11px;font-weight:700;color:var(--text2);letter-spacing:1px;text-transform:uppercase;padding:0 20px;margin:22px 0 10px}
 
-/* NEXT TEST CARD */
 .next-card{margin:0 16px;background:var(--surface);border:1px solid rgba(240,180,41,0.15);border-radius:16px;padding:16px 18px;display:flex;align-items:center;gap:14px}
 .next-icon{width:48px;height:48px;background:var(--gold-dim);border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
 .next-info{flex:1;min-width:0}
@@ -85,7 +79,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .days-chip.soon{background:linear-gradient(135deg,#f0b429,#e07010);animation:glow-pulse 2s infinite}
 @keyframes glow-pulse{0%,100%{box-shadow:none}50%{box-shadow:0 0 14px rgba(240,180,41,0.5)}}
 
-/* SCHEDULE */
 .sched-card{margin:0 16px;background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden}
 .sched-row{display:flex;align-items:center;padding:13px 18px;border-bottom:1px solid var(--border);gap:12px}
 .sched-row:last-child{border-bottom:none}
@@ -93,7 +86,6 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .sched-time{font-size:14px;font-weight:600;flex:1}
 .sched-badge{font-size:11px;color:var(--text2);background:var(--surface2);padding:3px 10px;border-radius:20px}
 
-/* LESSONS */
 .lessons-list{padding:0 16px;display:flex;flex-direction:column;gap:8px}
 .lesson-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:14px 18px;display:flex;align-items:center;gap:14px}
 .l-num{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0}
@@ -108,16 +100,15 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .l-badge.upcoming{background:rgba(255,255,255,0.05);color:var(--text2)}
 .l-badge.next{background:var(--gold);color:#1a1200}
 
-/* STUDENTS */
 .students-list{padding:0 16px;display:flex;flex-direction:column;gap:8px}
 .student-card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:13px 16px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:background .15s}
 .student-card:active{background:var(--surface2)}
-.ava{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;overflow:hidden;background:linear-gradient(135deg,#2a1f00,#4a3800)}
-.ava img{width:100%;height:100%;object-fit:cover;border-radius:13px}
+.ava{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0;background:linear-gradient(135deg,#2a1f00,#4a3800);color:var(--gold)}
 .s-info{flex:1;min-width:0}
 .s-name-row{display:flex;align-items:center;gap:6px}
 .s-name{font-weight:700;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .s-complete-icon{width:16px;height:16px;flex-shrink:0}
+.s-sub{color:var(--text2);font-size:12px;margin-top:3px}
 .s-icons{display:flex;gap:5px;align-items:center;flex-shrink:0}
 .s-icon-link{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .15s;text-decoration:none;flex-shrink:0}
 .s-icon-link:active{transform:scale(0.9)}
@@ -126,10 +117,8 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .s-icon-link.filled{opacity:1}
 .s-icon-link.empty{opacity:0.22;pointer-events:none}
 .s-icon-link img{width:16px;height:16px;object-fit:contain;display:block}
-.s-role{color:var(--text2);font-size:12px;margin-top:3px}
 .s-arr{color:var(--text3);font-size:20px;font-weight:300;flex-shrink:0}
 
-/* DETAIL */
 #detail-screen{position:fixed;inset:0;z-index:200;background:var(--bg);display:none;flex-direction:column;overflow-y:auto;-webkit-overflow-scrolling:touch}
 #detail-screen.open{display:flex;animation:slideIn 0.25s ease}
 @keyframes slideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
@@ -137,8 +126,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .back-btn{width:38px;height:38px;background:var(--surface);border:1px solid var(--border2);border-radius:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;color:var(--text);font-size:22px;line-height:1}
 .detail-title{font-size:17px;font-weight:800}
 .detail-hero{display:flex;flex-direction:column;align-items:center;padding:28px 20px 20px;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(240,180,41,0.1),transparent 60%)}
-.detail-ava{width:88px;height:88px;border-radius:26px;background:linear-gradient(135deg,#2a1f00,#4a3800);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,0.5),0 0 0 1px rgba(240,180,41,0.15);margin-bottom:14px}
-.detail-ava img{width:100%;height:100%;object-fit:cover}
+.detail-ava{width:88px;height:88px;border-radius:26px;background:linear-gradient(135deg,#2a1f00,#4a3800);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;color:var(--gold);box-shadow:0 8px 28px rgba(0,0,0,0.5),0 0 0 1px rgba(240,180,41,0.15);margin-bottom:14px}
 .detail-fullname{font-size:22px;font-weight:800;letter-spacing:-0.5px}
 .detail-role-lbl{color:var(--text2);font-size:13px;margin-top:4px}
 .info-block{margin:0 16px 12px;background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden}
@@ -158,19 +146,12 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .d-social-btn.tg{background:rgba(41,182,246,0.15);color:#29b6f6}
 .d-social-btn.disabled{opacity:0.25;pointer-events:none}
 
-/* PROFILE */
 .profile-top{display:flex;flex-direction:column;align-items:center;padding:24px 20px 20px;background:radial-gradient(ellipse at 50% 0%,rgba(240,180,41,0.1),transparent 60%)}
-.my-ava-wrap{position:relative;cursor:pointer}
-.my-ava{width:88px;height:88px;border-radius:26px;background:linear-gradient(135deg,#2a1f00,#4a3800);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;overflow:hidden;box-shadow:0 6px 28px rgba(0,0,0,0.4),0 0 0 1px rgba(240,180,41,0.15)}
-.my-ava img{width:100%;height:100%;object-fit:cover}
-.ava-edit{position:absolute;bottom:-4px;right:-4px;width:28px;height:28px;background:linear-gradient(135deg,#f0b429,#c8860a);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:13px;box-shadow:0 2px 8px rgba(240,180,41,0.4)}
-/* profile name row with optional check */
+.my-ava{width:88px;height:88px;border-radius:26px;background:linear-gradient(135deg,#2a1f00,#4a3800);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;color:var(--gold);box-shadow:0 6px 28px rgba(0,0,0,0.4),0 0 0 1px rgba(240,180,41,0.15)}
 .my-name-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px}
 .my-name-lbl{font-size:20px;font-weight:800;letter-spacing:-0.4px}
 .my-profile-check{width:22px;height:22px;display:none}
-.tap-hint{font-size:12px;color:var(--text3);margin-top:5px}
 
-/* LANG SWITCHER */
 .lang-section{margin:0 16px 16px}
 .lang-lbl{font-size:12px;font-weight:700;color:var(--text2);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:8px;display:block}
 .lang-row{display:flex;gap:8px}
@@ -179,7 +160,7 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .lang-btn:active{transform:scale(0.97)}
 
 .form-block{margin:0 16px 12px}
-.form-group{margin-bottom:12px;position:relative}
+.form-group{margin-bottom:12px}
 .form-lbl{font-size:12px;font-weight:700;color:var(--text2);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:7px;display:block}
 .form-inp{width:100%;padding:14px 16px;background:var(--surface);border:1.5px solid var(--border2);border-radius:13px;color:var(--text);font-size:15px;font-family:var(--font);outline:none;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none}
 .form-inp:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-dim)}
@@ -188,113 +169,131 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
 .save-btn{width:100%;padding:16px;background:linear-gradient(135deg,#f0b429,#c8860a);border:none;border-radius:14px;color:#1a1200;font-size:16px;font-weight:800;font-family:var(--font);cursor:pointer;transition:all .15s;box-shadow:0 4px 20px rgba(240,180,41,0.25)}
 .save-btn:active{transform:scale(0.97);opacity:0.9}
 .save-toast{margin-top:12px;padding:12px 16px;background:var(--green-dim);border:1px solid rgba(52,211,153,0.2);border-radius:12px;color:var(--green);font-size:14px;font-weight:600;text-align:center;display:none}
+.sync-note{margin:0 16px 12px;padding:12px 16px;background:rgba(240,180,41,0.06);border:1px solid rgba(240,180,41,0.12);border-radius:12px;color:var(--text2);font-size:12px;line-height:1.6;text-align:center}
+
+.offer-page{padding:20px 16px 40px}
+.offer-logo-row{display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.offer-logo{width:48px;height:48px;background:linear-gradient(135deg,#f0b429,#c8860a);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.offer-brand{font-size:20px;font-weight:800;letter-spacing:-0.4px}
+.offer-brand-sub{font-size:12px;color:var(--text2);margin-top:2px}
+.offer-section{margin-bottom:20px;background:var(--surface);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.offer-section-hdr{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:1px;text-transform:uppercase;padding:14px 18px 10px;border-bottom:1px solid var(--border)}
+.offer-section-body{padding:14px 18px;color:var(--text2);font-size:13px;line-height:1.8}
+.offer-section-body p{margin-bottom:10px}
+.offer-section-body p:last-child{margin-bottom:0}
+.offer-section-body strong{color:var(--text);font-weight:600}
+.offer-disclaimer{margin-top:24px;padding:14px 16px;background:rgba(248,113,113,0.07);border:1px solid rgba(248,113,113,0.15);border-radius:12px;color:var(--text2);font-size:12px;line-height:1.7;text-align:center}
+.offer-disclaimer strong{color:var(--red)}
+
+.loading-overlay{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:16px}
+.loading-logo{width:72px;height:72px;background:linear-gradient(135deg,#f0b429,#c8860a);border-radius:22px;display:flex;align-items:center;justify-content:center;font-size:32px;animation:pulse 1.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.7;transform:scale(0.95)}}
+.loading-txt{color:var(--text2);font-size:13px;font-weight:600}
+
 .gap8{height:8px}.gap16{height:16px}
 </style>
 </head>
 <body>
 
-<div id="onboard-screen">
+<div class="loading-overlay" id="loading-overlay">
+  <div class="loading-logo">📚</div>
+  <div class="loading-txt" id="loading-txt">Loading...</div>
+</div>
+
+<div id="onboard-screen" class="hidden">
   <div class="ob-logo">📚</div>
-  <div class="ob-title">English Class</div>
-  <div class="ob-sub" id="ob-sub-text">Enter your name to access the class portal</div>
+  <div class="ob-title">Inter Nation</div>
+  <div class="ob-sub" id="ob-sub-text"></div>
   <div class="ob-form">
-    <input class="ob-input" id="ob-fn" type="text" placeholder="First name" autocomplete="given-name" autocorrect="off" autocapitalize="words">
-    <input class="ob-input" id="ob-ln" type="text" placeholder="Last name" autocomplete="family-name" autocorrect="off" autocapitalize="words">
-    <button class="ob-btn" id="ob-btn-lbl" onclick="doLogin()">Continue →</button>
-    <div class="ob-error" id="ob-err">Name not found. Check spelling.</div>
+    <input class="ob-input" id="ob-fn" type="text" autocomplete="given-name" autocorrect="off" autocapitalize="words">
+    <input class="ob-input" id="ob-ln" type="text" autocomplete="family-name" autocorrect="off" autocapitalize="words">
+    <button class="ob-btn" id="ob-btn-lbl" onclick="doLogin()"></button>
+    <div class="ob-error" id="ob-err"></div>
   </div>
 </div>
 
 <div id="app" style="display:none">
   <div id="content">
 
-    <!-- HOME -->
     <div class="page active" id="page-home">
       <div class="page-header">
         <div class="page-h1" id="home-h1">Hello 👋</div>
-        <div class="page-sub" id="home-sub">English Class · Inter Nation</div>
+        <div class="page-sub" id="home-sub">Inter Nation</div>
       </div>
       <div class="hero-card">
-        <div class="hero-hi" id="hero-hi">Welcome back,</div>
+        <div class="hero-hi" id="hero-hi"></div>
         <div class="hero-name" id="hero-name">—</div>
         <div class="hero-row">
-          <div class="hero-stat"><div class="hero-stat-n" id="h-days">0</div><div class="hero-stat-l" id="h-days-lbl">Days studying</div></div>
-          <div class="hero-stat"><div class="hero-stat-n" id="h-lessons">0</div><div class="hero-stat-l" id="h-lessons-lbl">Lessons done</div></div>
-          <div class="hero-stat"><div class="hero-stat-n" id="h-tests">0</div><div class="hero-stat-l" id="h-tests-lbl">Tests passed</div></div>
+          <div class="hero-stat"><div class="hero-stat-n" id="h-days">0</div><div class="hero-stat-l" id="h-days-lbl"></div></div>
+          <div class="hero-stat"><div class="hero-stat-n" id="h-lessons">0</div><div class="hero-stat-l" id="h-lessons-lbl"></div></div>
+          <div class="hero-stat"><div class="hero-stat-n" id="h-tests">0</div><div class="hero-stat-l" id="h-tests-lbl"></div></div>
         </div>
       </div>
-      <div class="sec-lbl" id="lbl-next-test">Next Unit Test</div>
+      <div class="sec-lbl" id="lbl-next-test"></div>
       <div id="next-test-wrap"></div>
-      <div class="sec-lbl" id="lbl-schedule">Class Schedule</div>
+      <div class="sec-lbl" id="lbl-schedule"></div>
       <div class="sched-card">
-        <div class="sched-row"><div class="sched-day" id="sd1">TUE</div><div class="sched-time" id="st1">Every Tuesday at 14:00</div><div class="sched-badge" id="sb1">Weekly</div></div>
-        <div class="sched-row"><div class="sched-day" id="sd2">THU</div><div class="sched-time" id="st2">Every Thursday at 14:00</div><div class="sched-badge" id="sb2">Weekly</div></div>
-        <div class="sched-row"><div class="sched-day" id="sd3">SAT</div><div class="sched-time" id="st3">Every Saturday at 14:00</div><div class="sched-badge" id="sb3">Weekly</div></div>
+        <div class="sched-row"><div class="sched-day" id="sd1"></div><div class="sched-time" id="st1"></div><div class="sched-badge" id="sb1"></div></div>
+        <div class="sched-row"><div class="sched-day" id="sd2"></div><div class="sched-time" id="st2"></div><div class="sched-badge" id="sb2"></div></div>
+        <div class="sched-row"><div class="sched-day" id="sd3"></div><div class="sched-time" id="st3"></div><div class="sched-badge" id="sb3"></div></div>
       </div>
       <div class="gap16"></div>
     </div>
 
-    <!-- LESSONS -->
     <div class="page" id="page-lessons">
-      <div class="page-header"><div class="page-h1" id="lessons-h1">Lessons</div><div class="page-sub" id="lessons-sub">Unit test schedule</div></div>
+      <div class="page-header"><div class="page-h1" id="lessons-h1"></div><div class="page-sub" id="lessons-sub"></div></div>
       <div class="gap16"></div>
       <div class="lessons-list" id="lessons-list"></div>
       <div class="gap16"></div>
     </div>
 
-    <!-- STUDENTS -->
     <div class="page" id="page-students">
-      <div class="page-header"><div class="page-h1" id="students-h1">Students</div><div class="page-sub" id="students-sub">15 class members</div></div>
+      <div class="page-header"><div class="page-h1" id="students-h1"></div><div class="page-sub" id="students-sub"></div></div>
       <div class="gap16"></div>
       <div class="students-list" id="students-list"></div>
       <div class="gap16"></div>
     </div>
 
-    <!-- PROFILE -->
     <div class="page" id="page-profile">
-      <div class="page-header"><div class="page-h1" id="profile-h1">My Profile</div><div class="page-sub" id="profile-sub">Edit your information</div></div>
+      <div class="page-header"><div class="page-h1" id="profile-h1"></div><div class="page-sub" id="profile-sub"></div></div>
       <div class="profile-top">
-        <div class="my-ava-wrap" onclick="document.getElementById('ava-file').click()">
-          <div class="my-ava" id="my-ava"></div>
-          <div class="ava-edit">✏️</div>
-          <input type="file" id="ava-file" accept="image/*" style="display:none" onchange="onAvaChange(this)">
-        </div>
-        <div class="tap-hint" id="tap-hint-lbl">Tap to change photo</div>
-        <!-- name + check icon row -->
+        <div class="my-ava" id="my-ava"></div>
         <div class="my-name-row">
           <div class="my-name-lbl" id="my-name-lbl"></div>
-          <img class="my-profile-check" id="my-profile-check"
-               src="https://i.postimg.cc/tgq7fghK/free-icon-success-5582932.png" alt="✓">
+          <img class="my-profile-check" id="my-profile-check" src="https://i.postimg.cc/tgq7fghK/free-icon-success-5582932.png" alt="✓">
         </div>
       </div>
-
+      <div class="sync-note" id="sync-note-txt"></div>
       <div class="lang-section">
-        <label class="lang-lbl" id="lang-lbl-text">Language</label>
+        <label class="lang-lbl" id="lang-lbl-text"></label>
         <div class="lang-row">
           <button class="lang-btn active" id="lang-en" onclick="setLang('en')">🇬🇧 English</button>
           <button class="lang-btn" id="lang-ru" onclick="setLang('ru')">🇷🇺 Русский</button>
           <button class="lang-btn" id="lang-uz" onclick="setLang('uz')">🇺🇿 O'zbek</button>
         </div>
       </div>
-
       <div class="form-block">
         <div class="form-group">
-          <label class="form-lbl" id="lbl-ig">Instagram</label>
+          <label class="form-lbl" id="lbl-ig"></label>
           <input class="form-inp" id="f-ig" type="text" placeholder="@username" autocorrect="off" autocapitalize="off">
         </div>
         <div class="form-group">
-          <label class="form-lbl" id="lbl-tg">Telegram</label>
+          <label class="form-lbl" id="lbl-tg"></label>
           <input class="form-inp" id="f-tg" type="text" placeholder="@username" autocorrect="off" autocapitalize="off">
         </div>
         <div class="form-group">
-          <label class="form-lbl" id="lbl-bd">Birthday</label>
+          <label class="form-lbl" id="lbl-bd"></label>
           <input class="form-inp" id="f-bd" type="date">
         </div>
       </div>
       <div class="save-wrap">
-        <button class="save-btn" id="save-btn-lbl" onclick="saveProfile()">Save Changes</button>
-        <div class="save-toast" id="save-toast">✅ Saved!</div>
+        <button class="save-btn" id="save-btn-lbl" onclick="saveProfile()"></button>
+        <div class="save-toast" id="save-toast"></div>
       </div>
+    </div>
+
+    <div class="page" id="page-offer">
+      <div class="offer-page" id="offer-content"></div>
     </div>
 
   </div>
@@ -302,37 +301,40 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
   <div id="nav">
     <button class="nav-btn active" id="nb-home" onclick="goPage('home')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg>
-      <span id="nav-home-lbl">Home</span>
+      <span id="nav-home-lbl"></span>
     </button>
     <button class="nav-btn" id="nb-lessons" onclick="goPage('lessons')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
-      <span id="nav-lessons-lbl">Lessons</span>
+      <span id="nav-lessons-lbl"></span>
     </button>
     <button class="nav-btn" id="nb-students" onclick="goPage('students')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><path d="M16 3.13a4 4 0 010 7.75M21 21v-2a4 4 0 00-3-3.85"/></svg>
-      <span id="nav-students-lbl">Students</span>
+      <span id="nav-students-lbl"></span>
     </button>
     <button class="nav-btn" id="nb-profile" onclick="goPage('profile')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-      <span id="nav-profile-lbl">Profile</span>
+      <span id="nav-profile-lbl"></span>
+    </button>
+    <button class="nav-btn" id="nb-offer" onclick="goPage('offer')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+      <span id="nav-offer-lbl"></span>
     </button>
   </div>
 </div>
 
-<!-- DETAIL SCREEN -->
 <div id="detail-screen">
   <div class="detail-bar">
     <div class="back-btn" onclick="closeDetail()">‹</div>
-    <div class="detail-title" id="detail-bar-title">Student Profile</div>
+    <div class="detail-title" id="detail-bar-title"></div>
   </div>
   <div class="detail-hero">
     <div class="detail-ava" id="d-ava"></div>
     <div class="detail-fullname" id="d-name"></div>
-    <div class="detail-role-lbl" id="d-role-lbl">English Class · Inter Nation</div>
+    <div class="detail-role-lbl" id="d-role-lbl">Inter Nation</div>
     <div class="d-social-row" id="d-social-row"></div>
   </div>
   <div class="info-block">
-    <div class="info-block-hdr" id="d-hdr-social">Social Media</div>
+    <div class="info-block-hdr" id="d-hdr-social"></div>
     <div class="info-row">
       <div class="info-icon" style="background:rgba(225,48,108,0.12)">
         <img src="https://i.postimg.cc/vHCj8PXr/free-icon-instagram-15713420.png" alt="ig">
@@ -347,30 +349,24 @@ html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--text);fon
     </div>
   </div>
   <div class="info-block">
-    <div class="info-block-hdr" id="d-hdr-personal">Personal Info</div>
+    <div class="info-block-hdr" id="d-hdr-personal"></div>
     <div class="info-row">
       <div class="info-icon" style="background:rgba(240,180,41,0.12)">🎂</div>
-      <div class="info-body"><div class="info-lbl" id="d-lbl-bd">Birthday</div><div id="d-bd"></div></div>
+      <div class="info-body"><div class="info-lbl" id="d-lbl-bd"></div><div id="d-bd"></div></div>
     </div>
     <div class="info-row">
       <div class="info-icon" style="background:rgba(167,139,250,0.12)">🎉</div>
-      <div class="info-body"><div class="info-lbl" id="d-lbl-age">Age</div><div id="d-age"></div></div>
+      <div class="info-body"><div class="info-lbl" id="d-lbl-age"></div><div id="d-age"></div></div>
     </div>
   </div>
   <div style="height:40px"></div>
 </div>
 
 <script>
-/* ───────────────────────────────────────────────
-   ICON URLS
-─────────────────────────────────────────────── */
 var IC_CHECK = "https://i.postimg.cc/tgq7fghK/free-icon-success-5582932.png";
 var IC_IG    = "https://i.postimg.cc/vHCj8PXr/free-icon-instagram-15713420.png";
 var IC_TG    = "https://i.postimg.cc/ryPZgn6L/free-icon-telegram-2111646.png";
 
-/* ───────────────────────────────────────────────
-   DATA  —  dates fixed to 2026
-─────────────────────────────────────────────── */
 var CLASS_START = new Date("2026-04-21T00:00:00");
 
 var UNIT_TESTS = [
@@ -386,7 +382,6 @@ var UNIT_TESTS = [
   {unit:"Unit 10.4", date:"2026-06-23"}
 ];
 
-/* Students sorted A→Z by last name */
 var STUDENTS = [
   "Abdurauf Alimov",
   "Asliddin Shaxabiddinov",
@@ -405,21 +400,26 @@ var STUDENTS = [
   "Xushnudbek Qurbonov"
 ];
 
-var PAGES = ['home','lessons','students','profile'];
+var PAGES = ['home','lessons','students','profile','offer'];
 var currentUser = null;
 var currentLang = 'en';
+var cloudData = {};
 
-/* ───────────────────────────────────────────────
-   TRANSLATIONS
-─────────────────────────────────────────────── */
+var tg = (window.Telegram && window.Telegram.WebApp) ? window.Telegram.WebApp : null;
+if(tg){ tg.ready(); tg.expand(); }
+
+var useCloud = !!(tg && tg.CloudStorage);
+
 var LANGS = {
   en:{
-    ob_sub:"Enter your name to access the class portal",
+    ob_sub:"Enter your name exactly as it appears in the Student App",
+    ob_fn:"First name",
+    ob_ln:"Last name",
     ob_btn:"Continue →",
     ob_err_empty:"Enter both first and last name.",
-    ob_err_notfound:"Name not found. Check spelling.",
+    ob_err_notfound:"Name not found. Enter it exactly as in the Student App.",
     home_greeting:"Hello,",
-    home_sub:"English Class · Inter Nation",
+    home_sub:"Inter Nation",
     hero_hi:"Welcome back,",
     h_days:"Days studying",
     h_lessons:"Lessons done",
@@ -431,7 +431,6 @@ var LANGS = {
     sb:"Weekly",
     lessons_h1:"Lessons",
     lessons_sub:"Unit test schedule",
-    /* ← "Пройден" in EN */
     badge_done:"Completed ✓",
     badge_next:"Next",
     badge_upcoming:"Upcoming",
@@ -439,13 +438,13 @@ var LANGS = {
     students_sub:"15 class members",
     profile_h1:"My Profile",
     profile_sub:"Edit your information",
-    tap_hint:"Tap to change photo",
     lang_lbl:"Language",
     lbl_ig:"Instagram",
     lbl_tg:"Telegram",
     lbl_bd:"Birthday",
     save_btn:"Save Changes",
-    save_ok:"✅ Profile saved!",
+    save_ok:"✅ Saved!",
+    sync_note:"☁️ Your data syncs across all your devices via Telegram Cloud.",
     detail_title:"Student Profile",
     d_social:"Social Media",
     d_personal:"Personal Info",
@@ -453,31 +452,33 @@ var LANGS = {
     d_age:"Age",
     not_set:"Not set",
     years_old:" years old",
-    nav:["Home","Lessons","Students","Profile"],
+    nav:["Home","Lessons","Students","Profile","Terms"],
     chip_today:"Today!",
     chip_tomorrow:"Tomorrow",
     chip_days:" days",
-    all_done:"🎉 All unit tests completed!"
+    all_done:"🎉 All unit tests completed!",
+    loading:"Loading..."
   },
   ru:{
-    ob_sub:"Введите имя для доступа к порталу класса",
+    ob_sub:"Введите имя точно так, как оно указано в приложении Student App",
+    ob_fn:"Имя",
+    ob_ln:"Фамилия",
     ob_btn:"Продолжить →",
     ob_err_empty:"Введите имя и фамилию.",
-    ob_err_notfound:"Имя не найдено. Проверьте написание.",
+    ob_err_notfound:"Имя не найдено. Введите точно как в Student App.",
     home_greeting:"Привет,",
-    home_sub:"Английский класс · Inter Nation",
+    home_sub:"Inter Nation",
     hero_hi:"С возвращением,",
     h_days:"Дней обучения",
     h_lessons:"Уроков пройдено",
     h_tests:"Тестов пройдено",
-    lbl_next:"Следующий юнит тест",
+    lbl_next:"Следующий Unit Test",
     lbl_schedule:"Расписание занятий",
     sd:["ВТ","ЧТ","СБ"],
     st:["Каждый вторник в 14:00","Каждый четверг в 14:00","Каждую субботу в 14:00"],
     sb:"Еженедельно",
     lessons_h1:"Уроки",
-    lessons_sub:"Расписание юнит тестов",
-    /* ← исправлено: Пройден вместо Сдан */
+    lessons_sub:"Расписание Unit тестов",
     badge_done:"Пройден ✓",
     badge_next:"Следующий",
     badge_upcoming:"Предстоит",
@@ -485,13 +486,13 @@ var LANGS = {
     students_sub:"15 участников класса",
     profile_h1:"Мой профиль",
     profile_sub:"Редактировать информацию",
-    tap_hint:"Нажмите, чтобы сменить фото",
     lang_lbl:"Язык",
     lbl_ig:"Инстаграм",
     lbl_tg:"Телеграм",
     lbl_bd:"День рождения",
     save_btn:"Сохранить",
-    save_ok:"✅ Профиль сохранён!",
+    save_ok:"✅ Сохранено!",
+    sync_note:"☁️ Ваши данные синхронизируются на всех устройствах через Telegram Cloud.",
     detail_title:"Профиль студента",
     d_social:"Соцсети",
     d_personal:"Личная информация",
@@ -499,19 +500,22 @@ var LANGS = {
     d_age:"Возраст",
     not_set:"Не указано",
     years_old:" лет",
-    nav:["Главная","Уроки","Студенты","Профиль"],
+    nav:["Главная","Уроки","Студенты","Профиль","Условия"],
     chip_today:"Сегодня!",
     chip_tomorrow:"Завтра",
     chip_days:" дн.",
-    all_done:"🎉 Все юнит тесты пройдены!"
+    all_done:"🎉 Все Unit тесты пройдены!",
+    loading:"Загрузка..."
   },
   uz:{
-    ob_sub:"Portal kirish uchun ismingizni kiriting",
+    ob_sub:"Ismingizni Student App ilovasidagi kabi aynan kiriting",
+    ob_fn:"Ism",
+    ob_ln:"Familiya",
     ob_btn:"Davom etish →",
     ob_err_empty:"Ism va familiyani kiriting.",
-    ob_err_notfound:"Ism topilmadi. Imlosini tekshiring.",
+    ob_err_notfound:"Ism topilmadi. Student App dagi kabi aynan kiriting.",
     home_greeting:"Salom,",
-    home_sub:"Ingliz tili sinfi · Inter Nation",
+    home_sub:"Inter Nation",
     hero_hi:"Xush kelibsiz,",
     h_days:"O'quv kunlari",
     h_lessons:"O'tilgan darslar",
@@ -530,13 +534,13 @@ var LANGS = {
     students_sub:"15 sinf a'zosi",
     profile_h1:"Mening profilim",
     profile_sub:"Ma'lumotni tahrirlash",
-    tap_hint:"Foto o'zgartirish uchun bosing",
     lang_lbl:"Til",
     lbl_ig:"Instagram",
     lbl_tg:"Telegram",
     lbl_bd:"Tug'ilgan kun",
     save_btn:"Saqlash",
-    save_ok:"✅ Profil saqlandi!",
+    save_ok:"✅ Saqlandi!",
+    sync_note:"☁️ Ma'lumotlaringiz Telegram Cloud orqali barcha qurilmalaringizda sinxronlanadi.",
     detail_title:"O'quvchi profili",
     d_social:"Ijtimoiy tarmoqlar",
     d_personal:"Shaxsiy ma'lumot",
@@ -544,24 +548,15 @@ var LANGS = {
     d_age:"Yosh",
     not_set:"Ko'rsatilmagan",
     years_old:" yosh",
-    nav:["Bosh sahifa","Darslar","O'quvchilar","Profil"],
+    nav:["Bosh sahifa","Darslar","O'quvchilar","Profil","Shartlar"],
     chip_today:"Bugun!",
     chip_tomorrow:"Ertaga",
     chip_days:" kun",
-    all_done:"🎉 Barcha unit testlar o'tildi!"
+    all_done:"🎉 Barcha Unit testlar o'tildi!",
+    loading:"Yuklanmoqda..."
   }
 };
 
-/* ───────────────────────────────────────────────
-   UTILS
-─────────────────────────────────────────────── */
-var tg = (window.Telegram && window.Telegram.WebApp) ? window.Telegram.WebApp : null;
-if(tg){ tg.ready(); tg.expand(); }
-
-function sk(n){ return 'ec_' + n.replace(/\s+/g,'_').toLowerCase(); }
-function lsSet(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
-function lsGet(k){ try{ var v=localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
-function initials(n){ var p=n.trim().split(' '); return p.length>=2 ? (p[0][0]+p[p.length-1][0]).toUpperCase() : n.substring(0,2).toUpperCase(); }
 function L(){ return LANGS[currentLang] || LANGS.en; }
 
 var MONTHS_EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -582,47 +577,94 @@ function calcAge(s){
   return age;
 }
 
-function setAva(el,src){ el.innerHTML='<img src="'+src+'" style="width:100%;height:100%;object-fit:cover">'; }
-function textAva(el,name){ el.textContent=initials(name); }
+function initials(n){ var p=n.trim().split(' '); return p.length>=2 ? (p[0][0]+p[p.length-1][0]).toUpperCase() : n.substring(0,2).toUpperCase(); }
 
-/* Profile is "complete" when instagram OR telegram is filled AND birthday is set */
-function isComplete(saved){
-  if(!saved) return false;
-  var hasSocial = !!(saved.instagram&&saved.instagram.trim()) || !!(saved.telegram&&saved.telegram.trim());
-  var hasBd     = !!(saved.birthday&&saved.birthday.trim());
+function lsSet(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+function lsGet(k){ try{ var v=localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function sk(n){ return 'ec_' + n.replace(/\s+/g,'_').toLowerCase(); }
+
+function cloudKey(name){ return 'p_' + name.replace(/\s+/g,'_').toLowerCase().substring(0,32); }
+
+function cloudSave(name, data, cb){
+  var key = cloudKey(name);
+  var val = JSON.stringify({ig:data.instagram||'', tg:data.telegram||'', bd:data.birthday||'', lang:data.lang||'en'});
+  if(useCloud){
+    tg.CloudStorage.setItem(key, val, function(err){ if(cb) cb(); });
+  } else {
+    lsSet(key, val);
+    if(cb) cb();
+  }
+}
+
+function cloudLoad(name, cb){
+  var key = cloudKey(name);
+  if(useCloud){
+    tg.CloudStorage.getItem(key, function(err, val){
+      if(val){ try{ cb(JSON.parse(val)); return; }catch(e){} }
+      cb(null);
+    });
+  } else {
+    var v = lsGet(key);
+    cb(v ? (typeof v === 'string' ? JSON.parse(v) : v) : null);
+  }
+}
+
+function cloudLoadAll(cb){
+  if(!useCloud){ cb({}); return; }
+  var keys = STUDENTS.map(cloudKey);
+  tg.CloudStorage.getItems(keys, function(err, vals){
+    var result = {};
+    if(vals){
+      STUDENTS.forEach(function(name){
+        var k = cloudKey(name);
+        if(vals[k]){ try{ result[name] = JSON.parse(vals[k]); }catch(e){} }
+      });
+    }
+    cb(result);
+  });
+}
+
+function getStudentData(name){
+  return cloudData[name] || null;
+}
+
+function isComplete(d){
+  if(!d) return false;
+  var hasSocial = !!(d.ig && d.ig.trim()) || !!(d.tg && d.tg.trim());
+  var hasBd = !!(d.bd && d.bd.trim());
   return hasSocial && hasBd;
 }
 
-/* Refresh the check icon next to the current user's name in Profile tab */
 function refreshProfileCheck(){
   var el = document.getElementById('my-profile-check');
   if(!el || !currentUser) return;
-  var ok = isComplete(lsGet(sk(currentUser)));
-  el.style.display = ok ? 'block' : 'none';
+  el.style.display = isComplete(getStudentData(currentUser)) ? 'block' : 'none';
 }
 
-/* ───────────────────────────────────────────────
-   LANG
-─────────────────────────────────────────────── */
 function setLang(lang){
   currentLang = lang;
   ['en','ru','uz'].forEach(function(l){
     document.getElementById('lang-'+l).classList[l===lang?'add':'remove']('active');
   });
   if(currentUser){
-    var d = lsGet(sk(currentUser)) || {};
+    var d = getStudentData(currentUser) || {};
     d.lang = lang;
-    lsSet(sk(currentUser), d);
+    cloudData[currentUser] = d;
+    cloudSave(currentUser, {instagram:d.ig||'',telegram:d.tg||'',birthday:d.bd||'',lang:lang});
   }
   applyLang();
   buildHome();
   buildLessons();
   buildStudents();
+  buildOffer();
 }
 
 function applyLang(){
   var t = L();
+  document.getElementById('loading-txt').textContent = t.loading;
   document.getElementById('ob-sub-text').textContent  = t.ob_sub;
+  document.getElementById('ob-fn').placeholder        = t.ob_fn;
+  document.getElementById('ob-ln').placeholder        = t.ob_ln;
   document.getElementById('ob-btn-lbl').textContent   = t.ob_btn;
   document.getElementById('home-sub').textContent     = t.home_sub;
   document.getElementById('hero-hi').textContent      = t.hero_hi;
@@ -640,12 +682,12 @@ function applyLang(){
   document.getElementById('students-sub').textContent = t.students_sub;
   document.getElementById('profile-h1').textContent   = t.profile_h1;
   document.getElementById('profile-sub').textContent  = t.profile_sub;
-  document.getElementById('tap-hint-lbl').textContent = t.tap_hint;
   document.getElementById('lang-lbl-text').textContent= t.lang_lbl;
   document.getElementById('lbl-ig').textContent       = t.lbl_ig;
   document.getElementById('lbl-tg').textContent       = t.lbl_tg;
   document.getElementById('lbl-bd').textContent       = t.lbl_bd;
   document.getElementById('save-btn-lbl').textContent = t.save_btn;
+  document.getElementById('sync-note-txt').textContent= t.sync_note;
   document.getElementById('detail-bar-title').textContent = t.detail_title;
   document.getElementById('d-hdr-social').textContent = t.d_social;
   document.getElementById('d-hdr-personal').textContent = t.d_personal;
@@ -656,11 +698,9 @@ function applyLang(){
   document.getElementById('nav-lessons-lbl').textContent = nav[1];
   document.getElementById('nav-students-lbl').textContent= nav[2];
   document.getElementById('nav-profile-lbl').textContent = nav[3];
+  document.getElementById('nav-offer-lbl').textContent   = nav[4];
 }
 
-/* ───────────────────────────────────────────────
-   LOGIN
-─────────────────────────────────────────────── */
 function doLogin(){
   var fn  = (document.getElementById('ob-fn').value||'').trim();
   var ln  = (document.getElementById('ob-ln').value||'').trim();
@@ -676,15 +716,20 @@ function doLogin(){
   if(!match){ err.textContent=t.ob_err_notfound; err.style.display='block'; return; }
   currentUser = match;
   lsSet('ec_user', match);
-  launchApp();
+  document.getElementById('loading-overlay').style.display = 'flex';
+  cloudLoad(match, function(data){
+    if(data){ cloudData[match] = data; }
+    cloudLoadAll(function(allData){
+      Object.assign(cloudData, allData);
+      if(cloudData[match]) cloudData[match] = cloudData[match];
+      launchApp();
+    });
+  });
 }
 
 document.getElementById('ob-fn').addEventListener('keydown',function(e){ if(e.key==='Enter') document.getElementById('ob-ln').focus(); });
 document.getElementById('ob-ln').addEventListener('keydown',function(e){ if(e.key==='Enter') doLogin(); });
 
-/* ───────────────────────────────────────────────
-   STATS
-─────────────────────────────────────────────── */
 function calcStats(){
   var now = new Date(); now.setHours(0,0,0,0);
   var start = new Date(CLASS_START); start.setHours(0,0,0,0);
@@ -699,14 +744,12 @@ function calcStats(){
   return {days:days, lessons:lessons, tests:tests};
 }
 
-/* ───────────────────────────────────────────────
-   LAUNCH
-─────────────────────────────────────────────── */
 function launchApp(){
+  document.getElementById('loading-overlay').style.display = 'none';
   document.getElementById('onboard-screen').classList.add('hidden');
   document.getElementById('app').style.display = 'flex';
 
-  var saved = lsGet(sk(currentUser));
+  var saved = getStudentData(currentUser);
   if(saved && saved.lang){
     currentLang = saved.lang;
     ['en','ru','uz'].forEach(function(l){ document.getElementById('lang-'+l).classList[l===currentLang?'add':'remove']('active'); });
@@ -717,25 +760,22 @@ function launchApp(){
   document.getElementById('home-h1').textContent  = t.home_greeting+' '+currentUser.split(' ')[0]+' 👋';
   document.getElementById('hero-name').textContent = currentUser;
   document.getElementById('my-name-lbl').textContent = currentUser;
+  document.getElementById('my-ava').textContent = initials(currentUser);
 
-  var myAva = document.getElementById('my-ava');
-  if(saved && saved.avatar){ setAva(myAva, saved.avatar); } else { textAva(myAva, currentUser); }
   if(saved){
-    if(saved.instagram) document.getElementById('f-ig').value = saved.instagram;
-    if(saved.telegram)  document.getElementById('f-tg').value = saved.telegram;
-    if(saved.birthday)  document.getElementById('f-bd').value = saved.birthday;
+    if(saved.ig) document.getElementById('f-ig').value = saved.ig;
+    if(saved.tg) document.getElementById('f-tg').value = saved.tg;
+    if(saved.bd) document.getElementById('f-bd').value = saved.bd;
   }
 
   refreshProfileCheck();
   buildHome();
   buildLessons();
   buildStudents();
+  buildOffer();
   goPage('home');
 }
 
-/* ───────────────────────────────────────────────
-   BUILD HOME
-─────────────────────────────────────────────── */
 function buildHome(){
   var t = L();
   var s = calcStats();
@@ -764,9 +804,6 @@ function buildHome(){
   wrap.innerHTML = '<div class="next-card"><div class="next-icon">📝</div><div class="next-info"><div class="next-name">'+next.unit+'</div><div class="next-date">'+fmtDate(next.date)+'</div></div><div class="'+cc+'">'+lbl+'</div></div>';
 }
 
-/* ───────────────────────────────────────────────
-   BUILD LESSONS
-─────────────────────────────────────────────── */
 function buildLessons(){
   var t   = L();
   var now = new Date(); now.setHours(0,0,0,0);
@@ -784,36 +821,28 @@ function buildLessons(){
   document.getElementById('lessons-list').innerHTML = html;
 }
 
-/* ───────────────────────────────────────────────
-   BUILD STUDENTS
-─────────────────────────────────────────────── */
 function buildStudents(){
+  var t = L();
   var html = '';
   for(var i=0;i<STUDENTS.length;i++){
     var name  = STUDENTS[i];
-    var saved = lsGet(sk(name)) || {};
-    var avaHtml = saved.avatar
-      ? '<img src="'+saved.avatar+'" style="width:100%;height:100%;object-fit:cover;border-radius:13px">'
-      : initials(name);
-
-    var hasIg = !!(saved.instagram && saved.instagram.trim());
-    var hasTg = !!(saved.telegram  && saved.telegram.trim());
-    var igHref = hasIg ? 'https://instagram.com/'+saved.instagram.replace('@','').trim() : '#';
-    var tgHref = hasTg ? 'https://t.me/'         +saved.telegram.replace('@','').trim()  : '#';
-
+    var d     = cloudData[name] || {};
+    var hasIg = !!(d.ig && d.ig.trim());
+    var hasTg = !!(d.tg && d.tg.trim());
+    var hasBd = !!(d.bd && d.bd.trim());
+    var igHref = hasIg ? 'https://instagram.com/'+d.ig.replace('@','').trim() : '#';
+    var tgHref = hasTg ? 'https://t.me/'+d.tg.replace('@','').trim() : '#';
     var igCls = 's-icon-link ig '+(hasIg?'filled':'empty');
     var tgCls = 's-icon-link tg '+(hasTg?'filled':'empty');
-
-    /* ← new check icon (complete profile) */
-    var checkHtml = isComplete(saved)
-      ? '<img class="s-complete-icon" src="'+IC_CHECK+'" alt="✓">'
-      : '';
-
+    var checkHtml = isComplete(d) ? '<img class="s-complete-icon" src="'+IC_CHECK+'" alt="✓">' : '';
+    var subParts = [];
+    if(hasBd){ subParts.push(fmtDate(d.bd)); }
+    if(hasBd){ var age = calcAge(d.bd); subParts.push(age + t.years_old.trim()); }
+    var subTxt = subParts.length ? subParts.join(' · ') : 'Inter Nation';
     var safe = name.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-
     html += '<div class="student-card">';
-    html += '<div class="ava" onclick="openDetail(\''+safe+'\')">'+avaHtml+'</div>';
-    html += '<div class="s-info" onclick="openDetail(\''+safe+'\')"><div class="s-name-row"><div class="s-name">'+name+'</div>'+checkHtml+'</div><div class="s-role">Student</div></div>';
+    html += '<div class="ava" onclick="openDetail(\''+safe+'\')">'+initials(name)+'</div>';
+    html += '<div class="s-info" onclick="openDetail(\''+safe+'\')"><div class="s-name-row"><div class="s-name">'+name+'</div>'+checkHtml+'</div><div class="s-sub">'+subTxt+'</div></div>';
     html += '<div class="s-icons">';
     if(hasIg) html += '<a class="'+igCls+'" href="'+igHref+'" target="_blank"><img src="'+IC_IG+'" alt="ig"></a>';
     else      html += '<span class="'+igCls+'"><img src="'+IC_IG+'" alt="ig"></span>';
@@ -826,20 +855,136 @@ function buildStudents(){
   document.getElementById('students-list').innerHTML = html;
 }
 
-/* ───────────────────────────────────────────────
-   DETAIL
-─────────────────────────────────────────────── */
+function buildOffer(){
+  var lang = currentLang;
+  var content = '';
+  if(lang === 'ru'){
+    content = `
+    <div class="offer-logo-row">
+      <div class="offer-logo">📚</div>
+      <div><div class="offer-brand">Inter Nation</div><div class="offer-brand-sub">Пользовательское соглашение</div></div>
+    </div>
+    <div class="offer-section">
+      <div class="offer-section-hdr">О приложении</div>
+      <div class="offer-section-body">
+        <p>Данное приложение является <strong>неофициальным</strong> Telegram-ботом, созданным частным лицом для удобства студентов одной учебной группы учебного центра <strong>Inter Nation</strong>.</p>
+        <p>Приложение не является официальным продуктом учебного центра Inter Nation (<a href="https://inter-nation.uz" style="color:var(--gold)">inter-nation.uz</a>) и не аффилировано с ним. Официальный Telegram-бот Inter Nation — отдельный ресурс.</p>
+        <p>Бот создан исключительно в личных целях для координации внутри группы. Контакт с создателем: <a href="https://t.me/inter_chilanzar_bot" style="color:var(--gold)">@inter_chilanzar_bot</a></p>
+      </div>
+    </div>
+    <div class="offer-section">
+      <div class="offer-section-hdr">Какие данные собираются</div>
+      <div class="offer-section-body">
+        <p>Приложение хранит только те данные, которые вы вводите добровольно:</p>
+        <p>• <strong>Имя и фамилия</strong> — используются исключительно для авторизации в системе.</p>
+        <p>• <strong>Instagram и Telegram</strong> — для связи между студентами группы.</p>
+        <p>• <strong>Дата рождения</strong> — для отображения возраста и поздравлений внутри группы.</p>
+        <p>Никакие данные не передаются третьим лицам, не используются в коммерческих целях и не связаны с учебным центром Inter Nation.</p>
+      </div>
+    </div>
+    <div class="offer-section">
+      <div class="offer-section-hdr">Где хранятся данные</div>
+      <div class="offer-section-body">
+        <p>Данные профиля (соцсети, дата рождения) хранятся в <strong>Telegram CloudStorage</strong> — защищённом хранилище Telegram, привязанном к вашему аккаунту. Это обеспечивает синхронизацию между устройствами.</p>
+        <p>Имя для входа хранится в localStorage вашего браузера на устройстве.</p>
+      </div>
+    </div>
+    <div class="offer-section">
+      <div class="offer-section-hdr">Ваши права</div>
+      <div class="offer-section-body">
+        <p>Вы вправе в любой момент <strong>не заполнять</strong> или <strong>удалить</strong> свои данные, просто очистив поля в разделе «Профиль». Использование приложения добровольно.</p>
+        <p>Данные видны другим участникам группы — это основная цель приложения: коммуникация между студентами.</p>
+      </div>
+    </div>
+    <div class="offer-disclaimer"><strong>Важно:</strong> Это неофициальный бот. Учебный центр Inter Nation не несёт ответственности за данное приложение.</div>`;
+  } else if(lang === 'uz'){
+    content = `
+    <div class="offer-logo-row">
+      <div class="offer-logo">📚</div>
+      <div><div class="offer-brand">Inter Nation</div><div class="offer-brand-sub">Foydalanuvchi shartnomasi</div></div>
+    </div>
+    <div class="offer-section">
+      <div class="offer-section-hdr">Ilova haqida</div>
+      <div class="offer-section-body">
+        <p>Ushbu ilova <strong>Inter Nation</strong> o'quv markazining bir guruh o'quvchilari uchun qulaylik yaratish maqsadida shaxs tomonidan yaratilgan <strong>norasmiy</strong> Telegram-bot hisoblanadi.</p>
+        <p>Bu ilova Inter Nation o'quv markazi (<a href="https://inter-nation.uz" style="color:var(--gold)">inter-nation.uz</a>) ning rasmiy mahsuloti emas va u bilan bog'liq emas. Bot shaxsiy maqsadlarda yaratilgan. Muallif bilan bog'lanish: <a href="https://t.me/inter_chilanzar_bot" style="color:var(--gold)">@inter_chilanzar_bot</a></p>
+      </div>
+    </div>
+    <div class="offer-section">
+      <div class="offer-section-hdr">Qanday ma'lumotlar saqlanadi</div>
+      <div class="offer-section-body">
+        <p>Ilova faqat siz ixtiyoriy ravishda kiritgan ma'lumotlarni saqlaydi:</p>
+        <p>• <strong>Ism va familiya</strong> — faqat tizimga kirish uchun ishlatiladi.</p>
+        <p>• <strong>Instagram va Telegram</strong> — guruh o'quvchilari o'rtasida muloqot uchun.</p>
+        <p>• <strong>Tug'ilgan sana</strong> — yosh ko'rsatish va guruh ichida tabriklar uchun.</p>
+        <p>Hech qanday ma'lumot uchinchi shaxslarga uzatilmaydi va tijorat maqsadlarida ishlatilmaydi.</p>
+      </div>
+    </div>
+    <div class="offer-section">
+      <div class="offer-section-hdr">Ma'lumotlar qayerda saqlanadi</div>
+      <div class="offer-section-body">
+        <p>Profil ma'lumotlari <strong>Telegram CloudStorage</strong> da saqlanadi — bu Telegram akkauntingizga bog'liq xavfsiz saqlash. Bu barcha qurilmalarda sinxronlashni ta'minlaydi.</p>
+      </div>
+    </div>
+    <div class="offer-section">
+      <div class="offer-section-hdr">Sizning huquqlaringiz</div>
+      <div class="offer-section-body">
+        <p>Siz istalgan vaqtda ma'lumotlaringizni <strong>to'ldirmasligingiz</strong> yoki <strong>o'chirishingiz</strong> mumkin. Ilovadan foydalanish ixtiyoriy.</p>
+        <p>Ma'lumotlar guruhning boshqa a'zolariga ko'rinadi — bu ilovaning asosiy maqsadi: o'quvchilar o'rtasida muloqot.</p>
+      </div>
+    </div>
+    <div class="offer-disclaimer"><strong>Muhim:</strong> Bu norasmiy bot. Inter Nation o'quv markazi ushbu ilova uchun javobgar emas.</div>`;
+  } else {
+    content = `
+    <div class="offer-logo-row">
+      <div class="offer-logo">📚</div>
+      <div><div class="offer-brand">Inter Nation</div><div class="offer-brand-sub">Terms of Use</div></div>
+    </div>
+    <div class="offer-section">
+      <div class="offer-section-hdr">About This App</div>
+      <div class="offer-section-body">
+        <p>This application is an <strong>unofficial</strong> Telegram bot created by a private individual for the convenience of students in one study group at <strong>Inter Nation</strong> language center.</p>
+        <p>This app is not an official product of Inter Nation (<a href="https://inter-nation.uz" style="color:var(--gold)">inter-nation.uz</a>) and is not affiliated with it. It was created solely for internal group coordination. Contact the creator: <a href="https://t.me/inter_chilanzar_bot" style="color:var(--gold)">@inter_chilanzar_bot</a></p>
+      </div>
+    </div>
+    <div class="offer-section">
+      <div class="offer-section-hdr">What Data Is Collected</div>
+      <div class="offer-section-body">
+        <p>The app stores only the data you voluntarily provide:</p>
+        <p>• <strong>First and last name</strong> — used solely for login purposes.</p>
+        <p>• <strong>Instagram and Telegram</strong> — for communication between group members.</p>
+        <p>• <strong>Date of birth</strong> — to display age and birthday greetings within the group.</p>
+        <p>No data is shared with third parties or used for commercial purposes.</p>
+      </div>
+    </div>
+    <div class="offer-section">
+      <div class="offer-section-hdr">Where Data Is Stored</div>
+      <div class="offer-section-body">
+        <p>Profile data is stored in <strong>Telegram CloudStorage</strong> — a secure storage tied to your Telegram account. This ensures synchronization across all your devices.</p>
+      </div>
+    </div>
+    <div class="offer-section">
+      <div class="offer-section-hdr">Your Rights</div>
+      <div class="offer-section-body">
+        <p>You may at any time choose <strong>not to fill in</strong> or <strong>delete</strong> your data by clearing the fields in the Profile section. Use of the app is entirely voluntary.</p>
+        <p>Your data is visible to other group members — this is the core purpose of the app: communication between students.</p>
+      </div>
+    </div>
+    <div class="offer-disclaimer"><strong>Important:</strong> This is an unofficial bot. Inter Nation language center bears no responsibility for this application.</div>`;
+  }
+  document.getElementById('offer-content').innerHTML = content;
+}
+
 function openDetail(name){
   var t     = L();
-  var saved = lsGet(sk(name)) || {};
+  var d     = cloudData[name] || {};
   document.getElementById('d-name').textContent = name;
-  var dava = document.getElementById('d-ava');
-  if(saved.avatar){ setAva(dava, saved.avatar); } else { textAva(dava, name); }
+  document.getElementById('d-ava').textContent = initials(name);
 
-  var hasIg  = !!(saved.instagram && saved.instagram.trim());
-  var hasTg  = !!(saved.telegram  && saved.telegram.trim());
-  var igHref = hasIg ? 'https://instagram.com/'+saved.instagram.replace('@','').trim() : '#';
-  var tgHref = hasTg ? 'https://t.me/'         +saved.telegram.replace('@','').trim()  : '#';
+  var hasIg  = !!(d.ig && d.ig.trim());
+  var hasTg  = !!(d.tg && d.tg.trim());
+  var igHref = hasIg ? 'https://instagram.com/'+d.ig.replace('@','').trim() : '#';
+  var tgHref = hasTg ? 'https://t.me/'+d.tg.replace('@','').trim() : '#';
 
   var sr = '';
   sr += hasIg
@@ -856,9 +1001,9 @@ function openDetail(name){
       ? '<div class="info-val">'+val+'</div>'
       : '<div class="info-empty">'+t.not_set+'</div>';
   }
-  sf('d-ig', saved.instagram||'');
-  sf('d-tg', saved.telegram||'');
-  if(saved.birthday){ sf('d-bd', fmtDate(saved.birthday)); sf('d-age', calcAge(saved.birthday)+t.years_old); }
+  sf('d-ig', d.ig||'');
+  sf('d-tg', d.tg||'');
+  if(d.bd){ sf('d-bd', fmtDate(d.bd)); sf('d-age', calcAge(d.bd)+t.years_old); }
   else { sf('d-bd',''); sf('d-age',''); }
 
   var ds = document.getElementById('detail-screen');
@@ -870,46 +1015,23 @@ function closeDetail(){
   document.getElementById('detail-screen').classList.remove('open');
 }
 
-/* ───────────────────────────────────────────────
-   AVATAR CHANGE
-─────────────────────────────────────────────── */
-function onAvaChange(input){
-  var file = input.files && input.files[0];
-  if(!file) return;
-  var reader = new FileReader();
-  reader.onload = function(e){
-    var src = e.target.result;
-    setAva(document.getElementById('my-ava'), src);
-    var d = lsGet(sk(currentUser)) || {};
-    d.avatar = src;
-    lsSet(sk(currentUser), d);
-    buildStudents();
-  };
-  reader.readAsDataURL(file);
-}
-
-/* ───────────────────────────────────────────────
-   SAVE PROFILE
-─────────────────────────────────────────────── */
 function saveProfile(){
-  var t = L();
-  var d = lsGet(sk(currentUser)) || {};
-  d.instagram = document.getElementById('f-ig').value.trim();
-  d.telegram  = document.getElementById('f-tg').value.trim();
-  d.birthday  = document.getElementById('f-bd').value;
-  d.lang      = currentLang;
-  lsSet(sk(currentUser), d);
-  refreshProfileCheck();   // ← update check icon in Profile tab
-  buildStudents();
-  var toast = document.getElementById('save-toast');
-  toast.textContent  = t.save_ok;
-  toast.style.display = 'block';
-  setTimeout(function(){ toast.style.display='none'; }, 2500);
+  var t  = L();
+  var ig = document.getElementById('f-ig').value.trim();
+  var tgv= document.getElementById('f-tg').value.trim();
+  var bd = document.getElementById('f-bd').value;
+  var data = {ig:ig, tg:tgv, bd:bd, lang:currentLang};
+  cloudData[currentUser] = data;
+  cloudSave(currentUser, {instagram:ig, telegram:tgv, birthday:bd, lang:currentLang}, function(){
+    refreshProfileCheck();
+    buildStudents();
+    var toast = document.getElementById('save-toast');
+    toast.textContent = t.save_ok;
+    toast.style.display = 'block';
+    setTimeout(function(){ toast.style.display='none'; }, 2500);
+  });
 }
 
-/* ───────────────────────────────────────────────
-   NAVIGATION
-─────────────────────────────────────────────── */
 function goPage(name){
   for(var i=0;i<PAGES.length;i++){
     var p = PAGES[i];
@@ -919,18 +1041,30 @@ function goPage(name){
   document.getElementById('content').scrollTop = 0;
 }
 
-/* ───────────────────────────────────────────────
-   AUTO-LOGIN
-─────────────────────────────────────────────── */
 (function(){
   var saved = lsGet('ec_user');
   if(saved){
     for(var i=0;i<STUDENTS.length;i++){
-      if(STUDENTS[i] === saved){ currentUser = saved; launchApp(); return; }
+      if(STUDENTS[i] === saved){
+        currentUser = saved;
+        document.getElementById('loading-txt').textContent = LANGS[currentLang].loading;
+        cloudLoad(saved, function(data){
+          if(data){
+            cloudData[currentUser] = data;
+            if(data.lang) currentLang = data.lang;
+          }
+          cloudLoadAll(function(allData){
+            Object.assign(cloudData, allData);
+            launchApp();
+          });
+        });
+        return;
+      }
     }
-    /* name was removed from list — clear saved session */
     lsSet('ec_user', null);
   }
+  document.getElementById('loading-overlay').style.display = 'none';
+  document.getElementById('onboard-screen').classList.remove('hidden');
 })();
 </script>
 </body>
