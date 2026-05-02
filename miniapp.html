@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>English Class</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{
+--bg:#0a0e1a;
+--card:#111827;
+--card2:#161f30;
+--blue:#2563eb;
+--blue2:#3b82f6;
+--blue-glow:rgba(37,99,235,0.3);
+--text:#f0f4ff;
+--muted:#8892a4;
+--border:rgba(255,255,255,0.07);
+--green:#22c55e;
+--green-bg:rgba(34,197,94,0.12);
+--red:#ef4444;
+--red-bg:rgba(239,68,68,0.12);
+}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;min-height:100vh;overflow-x:hidden}
+.screen{display:none;min-height:100vh;padding-bottom:80px}
+.screen.active{display:block}
+
+/* ONBOARDING */
+#onboarding{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:32px 24px;background:radial-gradient(ellipse at 50% 0%,rgba(37,99,235,0.18) 0%,transparent 70%)}
+.onboard-logo{width:72px;height:72px;background:linear-gradient(135deg,var(--blue),#1d4ed8);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:32px;margin-bottom:24px;box-shadow:0 0 40px var(--blue-glow)}
+.onboard-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;text-align:center;margin-bottom:8px;letter-spacing:-0.5px}
+.onboard-sub{color:var(--muted);text-align:center;font-size:15px;margin-bottom:40px;line-height:1.5}
+.name-form{width:100%;max-width:340px}
+.name-form input{width:100%;padding:16px 20px;background:var(--card);border:1px solid var(--border);border-radius:14px;color:var(--text);font-size:16px;font-family:'DM Sans',sans-serif;outline:none;margin-bottom:12px;transition:border-color .2s}
+.name-form input:focus{border-color:var(--blue)}
+.name-form input::placeholder{color:var(--muted)}
+.btn-primary{width:100%;padding:16px;background:var(--blue);border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:opacity .2s,transform .1s}
+.btn-primary:active{transform:scale(0.98);opacity:0.9}
+.error-msg{color:var(--red);font-size:13px;text-align:center;margin-top:8px;display:none}
+
+/* NAV */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;height:68px;background:rgba(10,14,26,0.95);backdrop-filter:blur(20px);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-around;padding:0 8px;z-index:100}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 0;cursor:pointer;opacity:0.45;transition:opacity .2s}
+.nav-item.active{opacity:1}
+.nav-item svg{width:22px;height:22px}
+.nav-item span{font-size:11px;font-weight:500}
+
+/* HEADER */
+.page-header{padding:20px 20px 0;position:relative}
+.page-title{font-family:'Syne',sans-serif;font-size:24px;font-weight:800;letter-spacing:-0.5px}
+.page-sub{color:var(--muted);font-size:13px;margin-top:4px}
+
+/* HOME */
+.hero-card{margin:20px;background:linear-gradient(135deg,var(--blue) 0%,#1e40af 100%);border-radius:20px;padding:24px;position:relative;overflow:hidden}
+.hero-card::before{content:'';position:absolute;top:-40px;right:-40px;width:150px;height:150px;background:rgba(255,255,255,0.06);border-radius:50%}
+.hero-card::after{content:'';position:absolute;bottom:-30px;left:20px;width:100px;height:100px;background:rgba(255,255,255,0.04);border-radius:50%}
+.hero-greeting{font-size:13px;opacity:0.8;margin-bottom:6px}
+.hero-name{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;margin-bottom:20px}
+.hero-stats{display:flex;gap:16px}
+.hero-stat{background:rgba(255,255,255,0.12);border-radius:12px;padding:12px 16px;flex:1}
+.hero-stat-label{font-size:11px;opacity:0.75;margin-bottom:4px}
+.hero-stat-val{font-family:'Syne',sans-serif;font-size:18px;font-weight:700}
+.section-title{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;padding:0 20px;margin:24px 0 12px}
+.next-test-card{margin:0 20px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 20px;display:flex;align-items:center;gap:14px}
+.next-test-icon{width:44px;height:44px;background:rgba(37,99,235,0.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.next-test-info{flex:1}
+.next-test-name{font-weight:600;font-size:15px}
+.next-test-date{color:var(--muted);font-size:13px;margin-top:2px}
+.days-badge{background:var(--blue);color:#fff;font-size:12px;font-weight:600;padding:4px 10px;border-radius:20px}
+
+/* LESSONS */
+.lessons-list{padding:0 20px}
+.lesson-item{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px}
+.lesson-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.lesson-dot.done{background:var(--green);box-shadow:0 0 8px rgba(34,197,94,0.5)}
+.lesson-dot.upcoming{background:var(--blue);box-shadow:0 0 8px var(--blue-glow)}
+.lesson-info{flex:1}
+.lesson-name{font-weight:600;font-size:15px}
+.lesson-date{color:var(--muted);font-size:13px;margin-top:2px}
+.lesson-badge{font-size:12px;font-weight:600;padding:4px 10px;border-radius:20px}
+.lesson-badge.done{background:var(--green-bg);color:var(--green)}
+.lesson-badge.upcoming{background:rgba(37,99,235,0.15);color:var(--blue2)}
+
+/* STUDENTS */
+.students-list{padding:0 20px}
+.student-item{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:14px 18px;margin-bottom:8px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:background .2s}
+.student-item:active{background:var(--card2)}
+.student-avatar{width:44px;height:44px;border-radius:13px;background:linear-gradient(135deg,var(--blue),#1e40af);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;flex-shrink:0;overflow:hidden}
+.student-avatar img{width:100%;height:100%;object-fit:cover}
+.student-info{flex:1}
+.student-name{font-weight:600;font-size:15px}
+.student-role{color:var(--muted);font-size:13px;margin-top:2px}
+.chevron{color:var(--muted)}
+
+/* STUDENT PROFILE PAGE */
+#student-profile{display:none;min-height:100vh;padding-bottom:80px}
+#student-profile.active{display:block}
+.profile-hero{padding:24px 20px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(37,99,235,0.15) 0%,transparent 60%)}
+.profile-back{position:absolute;top:20px;left:16px;width:36px;height:36px;background:var(--card);border-radius:10px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.big-avatar{width:90px;height:90px;border-radius:26px;background:linear-gradient(135deg,var(--blue),#1e40af);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:34px;margin-bottom:14px;overflow:hidden;box-shadow:0 0 30px var(--blue-glow)}
+.big-avatar img{width:100%;height:100%;object-fit:cover}
+.profile-fullname{font-family:'Syne',sans-serif;font-size:22px;font-weight:800}
+.info-section{margin:0 20px 16px;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+.info-row{padding:14px 18px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border)}
+.info-row:last-child{border-bottom:none}
+.info-icon{font-size:18px;width:28px;text-align:center;flex-shrink:0}
+.info-label{color:var(--muted);font-size:12px;margin-bottom:2px}
+.info-value{font-size:14px;font-weight:500}
+.info-empty{color:var(--muted);font-size:14px;font-style:italic}
+
+/* MY PROFILE */
+.my-profile-top{padding:24px 20px 20px;display:flex;flex-direction:column;align-items:center;text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(37,99,235,0.15) 0%,transparent 60%)}
+.avatar-upload{position:relative;cursor:pointer}
+.avatar-upload-hint{font-size:11px;color:var(--muted);margin-top:8px}
+.edit-overlay{position:absolute;bottom:-4px;right:-4px;width:28px;height:28px;background:var(--blue);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:13px}
+.form-section{margin:0 20px 16px}
+.form-label{font-size:12px;color:var(--muted);margin-bottom:6px;font-weight:500}
+.form-input{width:100%;padding:14px 16px;background:var(--card);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:15px;font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;margin-bottom:10px}
+.form-input:focus{border-color:var(--blue)}
+.form-input::placeholder{color:var(--muted)}
+.save-btn{width:calc(100% - 40px);margin:0 20px;padding:16px;background:var(--blue);border:none;border-radius:14px;color:#fff;font-size:16px;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;transition:opacity .2s}
+.save-btn:active{opacity:0.85}
+.save-confirm{text-align:center;color:var(--green);font-size:14px;margin-top:10px;display:none;padding:0 20px}
+</style>
+</head>
+<body>
+
+<div id="onboarding" class="screen active">
+  <div class="onboard-logo">📚</div>
+  <div class="onboard-title">English Class</div>
+  <div class="onboard-sub">Enter your full name to access the class portal</div>
+  <div class="name-form">
+    <input type="text" id="first-name-input" placeholder="First name" autocomplete="given-name">
+    <input type="text" id="last-name-input" placeholder="Last name" autocomplete="family-name">
+    <button class="btn-primary" onclick="handleLogin()">Continue →</button>
+    <div class="error-msg" id="error-msg">Name not found in class list. Check spelling.</div>
+  </div>
+</div>
+
+<div id="app" class="screen">
+  <div id="page-home" class="screen active">
+    <div class="page-header">
+      <div class="page-title" id="home-greeting">Hello 👋</div>
+      <div class="page-sub">English Class Portal</div>
+    </div>
+    <div class="hero-card" style="margin-top:20px">
+      <div class="hero-greeting">Your class overview</div>
+      <div class="hero-name" id="hero-name"></div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-label">Total Tests</div>
+          <div class="hero-stat-val">11</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-label">Completed</div>
+          <div class="hero-stat-val" id="completed-count">0</div>
+        </div>
+      </div>
+    </div>
+    <div class="section-title">Next Unit Test</div>
+    <div id="next-test-card"></div>
+    <div style="height:20px"></div>
+  </div>
+
+  <div id="page-lessons" class="screen">
+    <div class="page-header">
+      <div class="page-title">Lessons</div>
+      <div class="page-sub">Unit test schedule</div>
+    </div>
+    <div style="height:16px"></div>
+    <div class="lessons-list" id="lessons-list"></div>
+  </div>
+
+  <div id="page-students" class="screen">
+    <div class="page-header">
+      <div class="page-title">Students</div>
+      <div class="page-sub">Class members</div>
+    </div>
+    <div style="height:16px"></div>
+    <div class="students-list" id="students-list"></div>
+  </div>
+
+  <div id="page-profile" class="screen">
+    <div class="my-profile-top">
+      <div class="avatar-upload" onclick="document.getElementById('avatar-file').click()">
+        <div class="big-avatar" id="my-big-avatar"><span id="my-avatar-initials"></span></div>
+        <div class="edit-overlay">✏️</div>
+        <input type="file" id="avatar-file" accept="image/*" style="display:none" onchange="handleAvatarUpload(this)">
+      </div>
+      <div class="avatar-upload-hint">Tap to change photo</div>
+      <div class="profile-fullname" style="margin-top:12px" id="my-profile-name"></div>
+    </div>
+    <div class="form-section">
+      <div class="form-label">Instagram</div>
+      <input class="form-input" id="inp-instagram" placeholder="@username">
+      <div class="form-label">Telegram</div>
+      <input class="form-input" id="inp-telegram" placeholder="@username">
+      <div class="form-label">Birthday</div>
+      <input class="form-input" id="inp-birthday" type="date">
+    </div>
+    <button class="save-btn" onclick="saveProfile()">Save Profile</button>
+    <div class="save-confirm" id="save-confirm">✅ Profile saved!</div>
+  </div>
+
+  <div class="bottom-nav">
+    <div class="nav-item active" onclick="showPage('home')">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      <span>Home</span>
+    </div>
+    <div class="nav-item" onclick="showPage('lessons')">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"/></svg>
+      <span>Lessons</span>
+    </div>
+    <div class="nav-item" onclick="showPage('students')">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+      <span>Students</span>
+    </div>
+    <div class="nav-item" onclick="showPage('profile')">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+      <span>Profile</span>
+    </div>
+  </div>
+</div>
+
+<div id="student-profile">
+  <div class="profile-hero" style="position:relative">
+    <div class="profile-back" onclick="closeStudentProfile()">←</div>
+    <div class="big-avatar" id="sp-avatar"><span id="sp-initials"></span></div>
+    <div class="profile-fullname" id="sp-name"></div>
+  </div>
+  <div class="info-section">
+    <div class="info-row">
+      <div class="info-icon">📸</div>
+      <div>
+        <div class="info-label">Instagram</div>
+        <div id="sp-instagram" class="info-value"></div>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-icon">✈️</div>
+      <div>
+        <div class="info-label">Telegram</div>
+        <div id="sp-telegram" class="info-value"></div>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-icon">🎂</div>
+      <div>
+        <div class="info-label">Birthday</div>
+        <div id="sp-birthday" class="info-value"></div>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-icon">🎉</div>
+      <div>
+        <div class="info-label">Age</div>
+        <div id="sp-age" class="info-value"></div>
+      </div>
+    </div>
+  </div>
+  <div style="height:80px"></div>
+</div>
+
+<script>
+const UNIT_TESTS=[
+  {unit:"Unit 1.1",date:"2025-04-21"},
+  {unit:"Unit 1.4",date:"2025-04-28"},
+  {unit:"Unit 2.4",date:"2025-05-02"},
+  {unit:"Unit 3.4",date:"2025-05-07"},
+  {unit:"Unit 4.4",date:"2025-05-16"},
+  {unit:"Unit 5.4",date:"2025-05-23"},
+  {unit:"Unit 6.4",date:"2025-05-30"},
+  {unit:"Unit 7.4",date:"2025-06-06"},
+  {unit:"Unit 8.4",date:"2025-06-11"},
+  {unit:"Unit 9.4",date:"2025-06-16"},
+  {unit:"Unit 10.4",date:"2025-06-23"},
+];
+
+const STUDENTS=[
+  "Muhammadali Yusufjonov","Asliddin Shaxabiddinov","Viktoriya Stergiu",
+  "Avaz Muxitdinov","Durdona Ollamurodova","Muhammad Toraev",
+  "Dilnoza Sadullaeva","Rasul Uktamov","Xushnudbek Qurbonov",
+  "Farangiz Eshboyeva","Jasmina Azadova","Muhammad Umidov",
+  "Abdurauf Alimov","Shamsiddin Farxodov","Ravshan Muslimov"
+];
+
+let currentUser=null;
+
+const tg=window.Telegram&&window.Telegram.WebApp;
+if(tg){tg.ready();tg.expand();}
+
+function getStorageKey(name){return 'profile_'+name.replace(/\s+/g,'_').toLowerCase();}
+
+function saveData(key,val){try{localStorage.setItem(key,JSON.stringify(val));}catch(e){}}
+function loadData(key){try{const v=localStorage.getItem(key);return v?JSON.parse(v):null;}catch(e){return null;}}
+
+function initials(name){const p=name.trim().split(' ');return p.length>=2?(p[0][0]+p[p.length-1][0]).toUpperCase():name.substring(0,2).toUpperCase();}
+
+function handleLogin(){
+  const fn=document.getElementById('first-name-input').value.trim();
+  const ln=document.getElementById('last-name-input').value.trim();
+  const full=fn+' '+ln;
+  const match=STUDENTS.find(s=>s.toLowerCase()===full.toLowerCase());
+  if(!match){
+    document.getElementById('error-msg').style.display='block';
+    return;
+  }
+  currentUser=match;
+  saveData('current_user',match);
+  showApp();
+}
+
+function showApp(){
+  document.getElementById('onboarding').classList.remove('active');
+  document.getElementById('app').classList.add('active');
+  document.getElementById('home-greeting').textContent='Hello, '+currentUser.split(' ')[0]+' 👋';
+  document.getElementById('hero-name').textContent=currentUser;
+  document.getElementById('my-profile-name').textContent=currentUser;
+  document.getElementById('my-avatar-initials').textContent=initials(currentUser);
+  const saved=loadData(getStorageKey(currentUser));
+  if(saved){
+    if(saved.avatar)setAvatarImage('my-big-avatar',saved.avatar);
+    if(saved.instagram)document.getElementById('inp-instagram').value=saved.instagram;
+    if(saved.telegram)document.getElementById('inp-telegram').value=saved.telegram;
+    if(saved.birthday)document.getElementById('inp-birthday').value=saved.birthday;
+  }
+  renderLessons();
+  renderStudents();
+  renderNextTest();
+}
+
+function renderLessons(){
+  const now=new Date();
+  const list=document.getElementById('lessons-list');
+  let completed=0;
+  list.innerHTML='';
+  UNIT_TESTS.forEach(t=>{
+    const td=new Date(t.date+'T00:00:00');
+    const done=td<now;
+    if(done)completed++;
+    const d=new Date(t.date+'T00:00:00');
+    const ds=d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+    const item=document.createElement('div');
+    item.className='lesson-item';
+    item.innerHTML=`<div class="lesson-dot ${done?'done':'upcoming'}"></div><div class="lesson-info"><div class="lesson-name">${t.unit}</div><div class="lesson-date">${ds}</div></div><div class="lesson-badge ${done?'done':'upcoming'}">${done?'✓ Done':'Upcoming'}</div>`;
+    list.appendChild(item);
+  });
+  document.getElementById('completed-count').textContent=completed;
+}
+
+function renderStudents(){
+  const list=document.getElementById('students-list');
+  list.innerHTML='';
+  STUDENTS.forEach(name=>{
+    const item=document.createElement('div');
+    item.className='student-item';
+    const saved=loadData(getStorageKey(name));
+    const hasAvatar=saved&&saved.avatar;
+    item.innerHTML=`<div class="student-avatar">${hasAvatar?`<img src="${saved.avatar}">`:`${initials(name)}`}</div><div class="student-info"><div class="student-name">${name}</div><div class="student-role">Student</div></div><div class="chevron">›</div>`;
+    item.onclick=()=>openStudentProfile(name);
+    list.appendChild(item);
+  });
+}
+
+function renderNextTest(){
+  const now=new Date();
+  const next=UNIT_TESTS.find(t=>new Date(t.date+'T00:00:00')>=now);
+  const card=document.getElementById('next-test-card');
+  if(!next){card.innerHTML='<div style="padding:0 20px;color:var(--muted)">All tests completed! 🎉</div>';return;}
+  const d=new Date(next.date+'T00:00:00');
+  const diff=Math.ceil((d-now)/(1000*60*60*24));
+  const ds=d.toLocaleDateString('en-US',{month:'long',day:'numeric'});
+  card.innerHTML=`<div class="next-test-card"><div class="next-test-icon">📝</div><div class="next-test-info"><div class="next-test-name">${next.unit}</div><div class="next-test-date">${ds}</div></div><div class="days-badge">${diff}d</div></div>`;
+}
+
+function openStudentProfile(name){
+  const saved=loadData(getStorageKey(name));
+  document.getElementById('sp-initials').textContent=initials(name);
+  document.getElementById('sp-name').textContent=name;
+  const spAvatar=document.getElementById('sp-avatar');
+  if(saved&&saved.avatar){
+    spAvatar.innerHTML=`<img src="${saved.avatar}" style="width:100%;height:100%;object-fit:cover">`;
+  } else {
+    spAvatar.innerHTML=`<span>${initials(name)}</span>`;
+  }
+  const set=(id,val,fb)=>document.getElementById(id).innerHTML=val?`<span>${val}</span>`:`<span class="info-empty">${fb}</span>`;
+  set('sp-instagram',saved&&saved.instagram,'Not set');
+  set('sp-telegram',saved&&saved.telegram,'Not set');
+  if(saved&&saved.birthday){
+    const bd=new Date(saved.birthday+'T00:00:00');
+    const bds=bd.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+    document.getElementById('sp-birthday').innerHTML=`<span>${bds}</span>`;
+    const age=Math.floor((new Date()-bd)/(365.25*24*60*60*1000));
+    document.getElementById('sp-age').innerHTML=`<span>${age} years old</span>`;
+  } else {
+    document.getElementById('sp-birthday').innerHTML=`<span class="info-empty">Not set</span>`;
+    document.getElementById('sp-age').innerHTML=`<span class="info-empty">Not set</span>`;
+  }
+  document.getElementById('app').style.display='none';
+  document.getElementById('student-profile').classList.add('active');
+}
+
+function closeStudentProfile(){
+  document.getElementById('student-profile').classList.remove('active');
+  document.getElementById('app').style.display='';
+}
+
+function setAvatarImage(id,src){
+  const el=document.getElementById(id);
+  el.innerHTML=`<img src="${src}" style="width:100%;height:100%;object-fit:cover">`;
+}
+
+function handleAvatarUpload(input){
+  const file=input.files[0];
+  if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const src=e.target.result;
+    setAvatarImage('my-big-avatar',src);
+    const saved=loadData(getStorageKey(currentUser))||{};
+    saved.avatar=src;
+    saveData(getStorageKey(currentUser),saved);
+    renderStudents();
+  };
+  reader.readAsDataURL(file);
+}
+
+function saveProfile(){
+  const data=loadData(getStorageKey(currentUser))||{};
+  data.instagram=document.getElementById('inp-instagram').value.trim();
+  data.telegram=document.getElementById('inp-telegram').value.trim();
+  data.birthday=document.getElementById('inp-birthday').value;
+  saveData(getStorageKey(currentUser),data);
+  const c=document.getElementById('save-confirm');
+  c.style.display='block';
+  setTimeout(()=>c.style.display='none',2500);
+}
+
+function showPage(page){
+  document.querySelectorAll('#app .screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n=>n.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  const pages=['home','lessons','students','profile'];
+  const idx=pages.indexOf(page);
+  document.querySelectorAll('.nav-item')[idx].classList.add('active');
+}
+
+const saved=loadData('current_user');
+if(saved&&STUDENTS.includes(saved)){currentUser=saved;document.getElementById('onboarding').classList.remove('active');document.getElementById('app').classList.add('active');showApp();}
+</script>
+</body>
+</html>
